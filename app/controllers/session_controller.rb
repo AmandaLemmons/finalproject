@@ -1,8 +1,9 @@
-class Api::SessionController < ApplicationController
+class SessionController < ApplicationController
 
   def new
-    @user = User.new
+      @user = User.new
   end
+
 
   def create
     username = params[:username]
@@ -11,7 +12,11 @@ class Api::SessionController < ApplicationController
     user = User.find_by username: username
     if (user) && (user.authenticate password)
       session[:user_id] = user.id
-      @current_user = user
+      redirect_to root_path
+      # @current_user = user
+    else
+      flash.now[:danger] = "Try again. Invalid email/password combination"
+      render :new
     end
   end
 
@@ -19,6 +24,7 @@ class Api::SessionController < ApplicationController
     session.delete :user_id
     redirect_to login_path
   end
+
 
 
 end

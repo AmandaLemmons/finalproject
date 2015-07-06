@@ -1,6 +1,21 @@
-<div class="btn-group btn-group-justified login_btn" role="group" aria-label="...">
-      <%= link_to "Log in", login_path, class: "btn btn-defaul"%>
+<div class="nav">
 
-  <!-- to create a new User -->
-    <%= link_to "Sign up", signup_path,  class: "btn btn-defaul"%>
+  <div class="btn-group btn-group-justified login_btn" role="group" aria-label="...">
+    <% if @current_user.nil? %>
+      <!-- to create a new Session -->
+      <%= link_to "Log in", login_path, class: "btn btn-defaul"%>
+      <!-- to create a new User -->
+      <%= link_to "Sign up", signup_path,  class: "btn btn-defaul"%>
+    <% else %>
+      <!-- to destroy a new session -->
+      <%= link_to "Log out", logout_path,  class: "btn btn-defaul"%>
+    <% end %>
   </div>
+
+</div>
+
+Hello
+  <% if @current_user.nil? %>
+    <%elsif %>
+      <%= @current_user.username %>
+  <% end %>

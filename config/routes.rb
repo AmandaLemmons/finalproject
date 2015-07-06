@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'yelps#index'
 
-  get '/signup' => 'api/users#new', as: :signup
-  post '/signup' => 'api/users#create', as: :user
+  get '/signup' => 'users#new', as: :signup
+  post '/users' => 'users#create', as: :users
 
-  get '/login' => 'api/session#new', as: :login
-  post '/auth' => 'api/session#create', as: :auth
-  delete '/logout' => 'api/session#destroy', as: :logout 
+  get '/login' => 'session#new', as: :login
+  post '/auth' => 'session#create', as: :auth
+  get '/logout' => 'session#destroy', as: :logout
 
 
   get '/dogparks' => 'yelps#dogparks', as: :dogparks

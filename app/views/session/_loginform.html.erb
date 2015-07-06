@@ -1,5 +1,5 @@
 
-  <%= form_tag auth_path(@user), method: :post do %>
+  <%= form_tag auth_path, method: :post do %>
     <div>
       <%= label_tag :username %>
       <%= text_field_tag :username, params[:username], class: "form-control" %>
