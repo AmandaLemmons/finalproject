@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for :user, remote: true do |f| %>
+      <%= f.input :username %>
+      <%= f.input :email %>
+      <!-- add a photo -->
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.submit  %>
+    <% end %>
+  </div>
+</div>

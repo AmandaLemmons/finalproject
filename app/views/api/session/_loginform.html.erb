@@ -1,0 +1,26 @@
+
+  <%= form_tag auth_path(@user), method: :post do %>
+    <div>
+      <%= label_tag :username %>
+      <%= text_field_tag :username, params[:username], class: "form-control" %>
+      <br>
+    </div>
+
+    <div>
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email], class: "form-control" %>
+      <br>
+    </div>
+
+    <div>
+      <%= label_tag :password %>
+      <%= password_field_tag :password, "", class: "form-control"%>
+      <br>
+    </div>
+
+    <div>
+      <%= submit_tag "Log In", class: "btn btn-primary btn-lg" %>
+      <br>
+      <br>
+    </div>
+  <% end %>
