@@ -6,36 +6,34 @@ require 'yelp'
     @city = params[:city]
   end
 
-
   def index
+
+    # if @category == ("vet" || "petstore" || "dogwalkers" || "pet_sitting" || "groomer" || "pet_training" ) && @city.present?
+
     if @category.present? && @city.present?
       parameters = { category_filter: @category, term: 'pet-friendly'  }
       @response = Yelp.client.search(@city, parameters)
     end
   end
 
-  def show
-    parameters = { category_filter: @category, term: 'pet-friendly'  }
-    @response = Yelp.client.search(@city, parameters)
-  end
 
 
 
 
 # hotels and restaurants don't match up with yelp.com.
 
-  def hotels
-    @title = "Hotels"
-    parameters = { category_filter: category, term: 'pet-friendly'  }
-    @response = Yelp.client.search(location, parameters)
-  end
-
-  def restaurants
-    @title = "Restaurants"
-    parameters = { category_filter: 'restaurants', term: 'pet-friendly'  }
-    @response = Yelp.client.search('Houston', parameters)
-  end
+  # def hotels
+  #   @title = "Hotels"
+  #   parameters = { category_filter: category, term: 'pet-friendly'  }
+  #   @response = Yelp.client.search(location, parameters)
+  # end
   #
+  # def restaurants
+  #   @title = "Restaurants"
+  #   parameters = { category_filter: 'restaurants', term: 'pet-friendly'  }
+  #   @response = Yelp.client.search('Houston', parameters)
+  # end
+  # #
   #
   # def dogparks
   #   @title = "Dog Parks"

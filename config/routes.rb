@@ -8,18 +8,17 @@ Rails.application.routes.draw do
   post '/auth' => 'session#create', as: :auth
   get '/logout' => 'session#destroy', as: :logout
 
-  get '/show' => 'yelps#show', as: :show
-  post '/show' => 'yelps#create'
-  get '/dogparks' => 'yelps#dogparks', as: :dogparks
-  get '/petstores' => 'yelps#petstores', as: :petservices
-  get '/vets' => 'yelps#vets', as: :vets
-  get '/groomers' => 'yelps#groomers', as: :groomers
-  get '/pet-sitting' => 'yelps#pet_sitting', as: :pet_sitting
-  get '/pet-training' => 'yelps#pet_training', as: :pet_training
-  get '/hotels' => 'yelps#hotels', as: :hotels
-  get '/restaurants' => 'yelps#restaurants', as: :restaurants
-  get '/dog-walkers' => 'yelps#dogwalkers', as: :dogwalkers
-  get '/animal-shelters' => 'yelps#animalshelters', as: :animalshelters
+
+  # get '/dogparks' => 'yelps#dogparks', as: :dogparks
+  # get '/petstores' => 'yelps#petstores', as: :petservices
+  # get '/vets' => 'yelps#vets', as: :vets
+  # get '/groomers' => 'yelps#groomers', as: :groomers
+  # get '/pet-sitting' => 'yelps#pet_sitting', as: :pet_sitting
+  # get '/pet-training' => 'yelps#pet_training', as: :pet_training
+  # get '/hotels' => 'yelps#hotels', as: :hotels
+  # get '/restaurants' => 'yelps#restaurants', as: :restaurants
+  # get '/dog-walkers' => 'yelps#dogwalkers', as: :dogwalkers
+  # get '/animal-shelters' => 'yelps#animalshelters', as: :animalshelters
 
 
 

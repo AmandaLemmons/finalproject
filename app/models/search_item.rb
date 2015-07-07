@@ -1,6 +1,5 @@
 class SearchItem < ActiveRecord::Base
-  validates :category, presence: true
-  validates :location, presence: true
+
 
   def self.yelp_categories
     [
@@ -15,6 +14,5 @@ class SearchItem < ActiveRecord::Base
       ["Restaurants", "restaurants"],
       ["Vets", "vet"],
       ]
-
   end
 end

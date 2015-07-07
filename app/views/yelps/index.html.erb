@@ -1,5 +1,4 @@
 <div class="nav">
-
   <div class="btn-group btn-group-justified login_btn" role="group" aria-label="...">
     <% if @current_user.nil? %>
       <!-- to create a new Session -->
@@ -11,18 +10,16 @@
       <%= link_to "Log out", logout_path,  class: "btn btn-defaul"%>
     <% end %>
   </div>
-
 </div>
 
-Hello
-
-
-
-  <% if @current_user.nil? %>
-    <%elsif %>
-      <%= @current_user.username %>
-  <% end %>
+  <h1> Hello </h1>
+    <% if @current_user.nil? %>
+      <%elsif %>
+        <h3> <%= @current_user.username %> </h3>
+    <% end %>
 
   <%= render partial: 'selectcategory' %>
 
-  <%= debug @response %>
+  <% if @category.present? && @city.present? %>
+    <%= render partial: 'doginfo' %>
+  <% end %>
