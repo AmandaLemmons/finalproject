@@ -11,12 +11,14 @@
     <br>
     <%= image_tag business.image_url %>
     <br>
-    <% unless %>
-      <%= business.display_phone == "" %>
+
+    <% if %>
+      <% business.display_phone == "" %>
       <p> There is no phone number available for this listing </p>
     <% else %>
       <%= business.display_phone %>
     <%end%>
+
     <br>
     <% business.location.display_address.each do |a| %>
       <%= a[0..-1] %>
