@@ -9,7 +9,8 @@ gem 'dotenv-rails'
 gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'simple_form', '3.1'
-
+gem 'kaminari'
+gem 'leaflet-rails', '~> 0.7.4'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

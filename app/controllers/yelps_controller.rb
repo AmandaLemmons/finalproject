@@ -7,17 +7,13 @@ require 'yelp'
   end
 
   def index
-
      if @category == ("hotels" || "restaurants") && @city.present?
-
-      parameters = { category_filter: @category, term: 'pet-friendly'  }
-      @response = Yelp.client.search(@city, parameters)
-
+       parameters = { category_filter: @category, term: 'pet-friendly'  }
+       @response = Yelp.client.search(@city, parameters)
     else
       parameters = { category_filter: @category }
       @response = Yelp.client.search(@city, parameters)
-
-    end
+     end
   end
 
 
