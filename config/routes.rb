@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post '/auth' => 'session#create', as: :auth
   get '/logout' => 'session#destroy', as: :logout
 
-
+  get '/show' => 'yelps#show', as: :show
+  post '/show' => 'yelps#create'
   get '/dogparks' => 'yelps#dogparks', as: :dogparks
   get '/petstores' => 'yelps#petstores', as: :petservices
   get '/vets' => 'yelps#vets', as: :vets

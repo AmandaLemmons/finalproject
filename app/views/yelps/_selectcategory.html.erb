@@ -1,19 +1,21 @@
 <form class="form-inline">
 
-    <select class="form-control">
-      <option>Select Your Category</option>
-      <option>Animal Shelters</option>
-      <option>Dog Parks</option>
-      <option>Dog Walkers</option>
-      <option>Groomers</option>
-      <option>Hotels</option>
-      <option>Pet Sitting</option>
-      <option>Pet Stores</option>
-      <option>Pet Training</option>
-      <option>Restaurants</option>
-      <option>Vets</option>
-    </select>
+  <%= select_tag :category, options_for_select(SearchItem.yelp_categories), class: "form-control", prompt: "Select a Category" %>
 
-    <input type="text" class="form-control" placeholder="Pleae Enter Your City">  <button type="submit" class="btn btn-default">Submit</button>
+    <input type="text" name="city" id="city" class="form-control" placeholder="Please Enter Your City">
+
+    <button type="submit" class="btn btn-default">Submit</button>
 
 </form>
+
+
+
+
+
+
+
+  <!-- <%= simple_form_for :search_item do |f| %>
+    <%= f.input :location, placeholder: "City, State"%>
+    <%= f.input :category, collection: ["Animal Shelters", "Dog Parks", "Dog Walkers", "Groomers", "Hotels", "Pet Sitting", "Pet Stores", "Pet Training", "Restaurants", "Vets" ] %>
+    <%= f.submit 'Search' %>
+  <% end %> -->

@@ -1,23 +1,23 @@
-<p> There are <%=@response.total%> <%="#{@title}"%> in your search area </p>
-<%=@response.businesses[0].name %>
-<br>
-<p> <%=@response.businesses[0].rating %> out of <%=@response.businesses[0].review_count %> reviews</p>
-<br>
-<%=link_to @response.businesses[0].url %>
-<br>
-<%=@response.businesses[0].snippet_text %>
-<br>
-<%=image_tag @response.businesses[0].image_url %>
-<br>
-<!-- doesn't work for dogparks -->
-<% unless %>
-  <%=@response.businesses[0].display_phone == "" %>
-  <p> There is no phone number available for this listing </p>
-<% else %>
-  <%=@response.businesses[0].display_phone %>
-<%end%>
-<br>
-<% @response.businesses[0].location.display_address.each do |a| %>
-  <%= a[0..-1] %>
+  <p> There are <%=@response.total%> <%="#{@title}"%> in your search area </p>
+  <%=@response.businesses[0].name %>
   <br>
-<% end %>
+  <p> <%=@response.businesses[0].rating %> out of <%=@response.businesses[0].review_count %> reviews</p>
+  <br>
+  <%=link_to @response.businesses[0].url %>
+  <br>
+  <%=@response.businesses[0].snippet_text %>
+  <br>
+  <%=image_tag @response.businesses[0].image_url %>
+  <br>
+  <!-- doesn't work for dogparks -->
+  <% unless %>
+    <%=@response.businesses[0].display_phone == "" %>
+    <p> There is no phone number available for this listing </p>
+  <% else %>
+    <%=@response.businesses[0].display_phone %>
+  <%end%>
+  <br>
+  <% @response.businesses[0].location.display_address.each do |a| %>
+    <%= a[0..-1] %>
+    <br>
+  <% end %>

@@ -16,9 +16,13 @@
 
 Hello
 
+
+
   <% if @current_user.nil? %>
     <%elsif %>
       <%= @current_user.username %>
   <% end %>
 
   <%= render partial: 'selectcategory' %>
+
+  <%= debug @response %>
