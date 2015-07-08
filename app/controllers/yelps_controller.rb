@@ -3,17 +3,22 @@ require 'yelp'
 
   before_action do
     @category = params[:category]
-    @city = params[:city]
+    @city = params[:city] || "Houston"
   end
 
   def index
-     if @category == ("hotels" || "restaurants") && @city.present?
-       parameters = { category_filter: @category, term: 'pet-friendly'  }
-       @response = Yelp.client.search(@city, parameters)
-    else
-      parameters = { category_filter: @category }
-      @response = Yelp.client.search(@city, parameters)
-     end
+
+    # if hotel or restaurant, add "pet-friendly"
+
+    parameters = { category_filter: "restaurants" }
+    if @category.present?
+      parameters[:category_filter] = @category
+    end
+    if ["hotels", "restaurants"].include? parameters[:category_filter]
+      parameters[:term] = 'pet-friendly'
+    end
+
+    @response = Yelp.client.search(@city, parameters)
   end
 
 

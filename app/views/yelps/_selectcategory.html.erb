@@ -1,8 +1,8 @@
 <form class="form-inline">
 
-  <%= select_tag :category, options_for_select(SearchItem.yelp_categories), class: "form-control", prompt: "Select a Category" %>
+  <%= select_tag :category, options_for_select(SearchItem.yelp_categories, params[:category]), class: "form-control", prompt: "Select a Category" %>
 
-    <input type="text" name="city" id="city" class="form-control" placeholder="Please Enter Your City">
+    <input type="text" name="city" id="city" class="form-control" placeholder="Please Enter Your City" value="<%= params[:city] %>">
 
     <button type="submit" class="btn btn-default">Submit</button>
 
