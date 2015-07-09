@@ -14,7 +14,11 @@
 <body>
 <div class="container">
 
-
+  <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert">
+         <p> City was not found. Please try again. </p>
+      </div>
+  <% end %>
 
 <%= yield %>
 </div>

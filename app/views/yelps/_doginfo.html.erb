@@ -1,3 +1,4 @@
+
   <div class= "container">
   <h3> There are <%= @response.total%> <%= "#{@title}"%> in your search area </h3>
   <br>
@@ -5,9 +6,18 @@
   <% @response.businesses.take(5).each do |business| %>
 
     <h4> <%= business.name %> </h4>
-    <%= image_tag business.image_url %>
+
+    <% if %>
+      <% business.has_key? 'image_url' %>
+      <%= image_tag business.image_url %>
+    <% else %>
+      <p> There isn't an availabe picture for this business. </p>
+    <% end %>
+
     <p> <%= business.rating %> out of <%= business.review_count %> reviews </p>
-    <%= link_to business.url %>
+    <%= link_to business.url, (business.url) %>
+
+
     <p> <%= business.snippet_text %></p>
     <% if %>
       <% business.display_phone == "" %>
