@@ -2,7 +2,7 @@ class YelpsController < ApplicationController
 require 'yelp'
 
   rescue_from Yelp::Error::UnavailableForLocation do |exception|
-    flash[:alert] = "City was not found. Please try again. "
+    flash[:alert] = "The city you entered isn't vaild. Please try again. "
     redirect_to root_path
   end
 
