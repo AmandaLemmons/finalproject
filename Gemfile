@@ -10,6 +10,7 @@ gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'simple_form', '3.1'
 gem 'kaminari'
+gem 'remotipart', '~> 1.2'
 
 
 
