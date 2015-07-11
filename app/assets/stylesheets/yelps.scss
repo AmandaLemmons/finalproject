@@ -4,38 +4,70 @@
    #map {
      width: 100%;
      height: 600px;
+     border: solid #ff9c5f 3px;
    }
    body {
      background-color: #ebe3e0;
      h2{
-       color: #f9a646;
+       color: #ff9c5f;
+       margin-top: 0px;
+     }
+     h3 {
+       color: #00ddd8;
      }
      p {
-       color: #5e5e5e;;
+       color: #ff606e;
+       font-size: 16px;
      }
    }
-  nav {
-    font-family: 'Clicker Script', cursive;
-    font-size: 40px;
-    color: darken(#edd5d1, 20%);
-    padding: 10px;
-    background-color: #e3d6c6;
+   .navbar {
+      margin-bottom: 0px;
+      font-family: 'Clicker Script', cursive;
+      font-size: 40px;
+      color: darken(#edd5d1, 20%);
+      padding: 10px;
+      background-color: #e3d6c6;
     .navbar-brand {
-    font-size: 40px;
+      font-size: 40px;
     }
-    .form-class {
-    font-size: 28px;
+    #category.form-control {
+      color: #777;
+      border-color: solid #777;
+      font-size: 24px;
+      background-color: #edd5d1;
+
     }
-    .btn {
-      font-size: 28px;
+    #city.form-control {
+      color: #777;
+      border-color: solid  #777;
+      font-size: 24px;
+      background-color: #edd5d1;
+    }
+    .btn.btn-default {
+      color: #777;
+      border-color: solid  #777;
+      font-size: 24px;
+      background-color: #edd5d1;
     }
   }
+
+
   .carousel-inner {
     width: 100%;
     height: 600px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+
+  .carousel-caption {
+    position: absolute;
+    z-index:1;
+    width: 200px;
+    }
   }
+  
 
   .doginfo {
     font-family: 'Shadows Into Light Two', cursive;
+  }
+  .container {
+    width: 1500px;
   }

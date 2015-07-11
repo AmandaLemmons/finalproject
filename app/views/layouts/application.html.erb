@@ -15,15 +15,15 @@
 </head>
 <body>
   <%= render partial: 'layouts/navbar' %>
+  <%= render partial: 'yelps/carousel' %>
 
-<div class="container">
 
   <% if flash[:alert] %>
       <div class="alert alert-danger" role="alert">
          <p> The city you entered isn't vaild. Please try again.  </p>
       </div>
   <% end %>
-
+<div class="container">
 <%= yield %>
 </div>
 </body>

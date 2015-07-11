@@ -42,15 +42,13 @@
       <% business.display_phone == "" %>
       <p> There is no phone number available for this business </p>
     <% else %>
-      <%= business.display_phone %>
+      <p><%= business.display_phone %></p>
     <%end%>
-    <br>
 
     <% if %>
       <% business.has_key? 'location' %>
         <% business.location.display_address.each do |a| %>
-        <%= a[0..-1] %>
-        <br>
+        <p><%= a[0..-1] %></p>
         <% end %>
     <% else %>
       <p> There is an address available for this busness </p>
