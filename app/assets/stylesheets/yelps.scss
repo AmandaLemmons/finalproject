@@ -4,19 +4,21 @@
    #map {
      width: 100%;
      height: 600px;
-     border: solid #ff9c5f 3px;
+     border: solid #e62739 3px;
    }
    body {
-     background-color: #ebe3e0;
+     background-color: #e1e8f0;
+     font-family: 'Shadows Into Light Two', cursive;
+
      h2{
-       color: #ff9c5f;
+       color: #e62739;
        margin-top: 0px;
      }
      h3 {
-       color: #00ddd8;
+       color: #6ed3cf;
      }
      p {
-       color: #ff606e;
+       color: #9068be;
        font-size: 16px;
      }
    }
@@ -24,30 +26,46 @@
       margin-bottom: 0px;
       font-family: 'Clicker Script', cursive;
       font-size: 40px;
-      color: darken(#edd5d1, 20%);
+      color: #9068be;
       padding: 10px;
-      background-color: #e3d6c6;
+      background-color: #6ed3cf;
+      .navbar-header a {
+        color: #9068be;
+        font-weight: bolder;
+      }
+      .navbar-header a:hover {
+          color: #e62739;
+      }
     .navbar-brand {
       font-size: 40px;
     }
     #category.form-control {
-      color: #777;
-      border-color: solid #777;
+      color: #9068be;
+      border-color: solid #9068be;
       font-size: 24px;
       background-color: #edd5d1;
-
     }
     #city.form-control {
-      color: #777;
-      border-color: solid  #777;
+      color: #9068be;
+      border-color: solid  #9068be;
       font-size: 24px;
       background-color: #edd5d1;
     }
     .btn.btn-default {
-      color: #777;
-      border-color: solid  #777;
+      color: #9068be;
+      border-color: solid  #9068be;
       font-size: 24px;
       background-color: #edd5d1;
+    }
+    .btn.btn-default:hover {
+      color: #e62739;
+    }
+    .navbar-nav li a{
+      color: #9068be;
+      font-weight: bolder;
+    }
+    .navbar-nav li a:hover {
+      color: #e62739;
     }
   }
 
@@ -63,7 +81,29 @@
     width: 200px;
     }
   }
+  .img {
+    height: 600px;
+    background-size: cover;
+  }
 
   .doginfo {
     font-family: 'Shadows Into Light Two', cursive;
+  }
+
+  .modal-content {
+    background-color: #e1e8f0;
+    font-family: 'Shadows Into Light Two', cursive;
+    color: #9068be;
+    font-size: 20px;
+  }
+  .login-btn {
+    background-color: #6ed3cf;
+    color: #e62739;
+    border: solid 1px #e62739;
+    font-size: 20px;
+  }
+  .login-btn:hover {
+    background-color: #e62739;
+    color: #6ed3cf;
+    border: solid 1px #6ed3cf;
   }
