@@ -1,12 +1,22 @@
 <div class="col-md-6">
 
-  <h2> There are <%= @response.total%> <%= "#{@title}"%> in your search area </h2>
+  <%= @business %> <br>
+  <%= @business.name %><br>
+  <%= @business.categories %><br>
+  <%= @business.id %><br>
+
+
+
+
+
+  <h2> There are <%= @response.total%> <%= "#{@category}"%> in your search area of <%="#{@city}"%></h2>
   <br>
 
 
   <% @response.businesses.take(10).each do |business| %>
 <div class="media">
   <div class="media-left">
+
     <% if %>
       <% business.has_key? 'image_url' %>
       <%= image_tag business.image_url %>
@@ -39,10 +49,10 @@
     <% end %>
 
     <% if %>
-      <% business.display_phone == "" %>
-      <p> There is no phone number available for this business </p>
+      <% business.has_key? 'display_phone' %>
+      <p> <%= business.display_phone %></p>
     <% else %>
-      <p><%= business.display_phone %></p>
+    <p> There is no phone number available for this business </p>
     <%end%>
 
     <% if %>
@@ -55,6 +65,13 @@
 
     <% end %>
     <br>
+    <% if %>
+      <%= link_to "Save this #{@category}", show_path %>
+      <% @response_id == business.id  %>
+
+      <% end %>
+
+    <h1><%= business.id %></h1>
   </div>
   </div>
   <% end %>

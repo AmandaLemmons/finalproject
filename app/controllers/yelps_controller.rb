@@ -7,30 +7,35 @@ require 'yelp'
   end
 
   before_action do
-    @category = params[:category]
-    @city = params[:city] || "Houston"
+    @category = params[:category] || "restaurants"
+    @city = params[:city] || "Austin"
   end
 
   def index
-    parameters = { category_filter: "restaurants" }
+    parameters = { category: "restaurants" }
     if @category.present?
       parameters[:category_filter] = @category
     end
 
-    if ["hotels", "restaurants"].include? parameters[:category_filter]
+    if ["hotels", "restaurants"].include? parameters[:category]
       parameters[:term] = 'pet-friendly'
     end
 
     @response = Yelp.client.search(@city, parameters)
 
+    @response.businesses.take(10).each do |business|
+      @business_id = business.id
+      @business = Yelp.client.business(@business_id)
+    end
+
+
+
+
   end
 
+  def show
 
-
-
-
-# hotels and restaurants don't match up with yelp.com.
-
+  end
 
 
 

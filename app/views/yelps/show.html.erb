@@ -1,0 +1,12 @@
+<%= @response.total%>
+
+<% @response.businesses.take(10).each do |business| %>
+  <% if %>
+    <% business.has_key? 'image_url' %>
+    <%= image_tag business.image_url %>
+  <% else %>
+    <p> There isn't an availabe picture for this business. </p>
+  <% end %>
+  <% end %>
+
+  <%= @x%>

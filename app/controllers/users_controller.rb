@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  require 'yelp'
 
   before_action :auth_user!, except: [:new, :create]
 
@@ -11,16 +12,35 @@ class UsersController < ApplicationController
     end
   end
 
-
   def new
     @user = User.new
   end
 
+  before_action do
+    @category = params[:category]
+    @city = params[:city]
+  end
+
+  def show
+
+    # when click on link, I want to save the hash["id"] from the link and display it on the show.html.erb
+
+    @response_id = @response.business.find["id"]
+
+    # @response_id = Yelp.client.search('id')
+
+
+
+
+
+  end
+
+
+
   def create
     @user = User.new params.require(:user).permit(:username, :email, :password, :password_confirmation)
       if @user.save
-      flash[:success] = "Greate"
-      redirect_to root_path
+      session[:user_id] = @user.id
     else
       render :new
     end

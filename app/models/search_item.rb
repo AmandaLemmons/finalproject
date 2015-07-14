@@ -1,10 +1,4 @@
 class SearchItem < ActiveRecord::Base
-  # validates check_city.valid
-
-  # def check_city
-  #   parameters = { category_filter: "restaurants" }
-  #   response = Yelp.client.search(@city, parameters)
-  # end
 
 
   def self.yelp_categories
