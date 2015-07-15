@@ -35,28 +35,25 @@ require 'yelp'
   end
 
 
-  # def create
-  #
-  #   @saved_location = SavedLocation.new
-  #   @saved_location.business_id = params[:business_id]
-  #   @saved_location.user_id = @current_user.id
-  #   @saved_location.save
-  #   redirect_to root_path
-  # end
+  def create
+
+  @saved_location = SavedLocation.new
+  @saved_location.business_id = params[:business_id]
+  @saved_location.user_id = @current_user.id
+  @saved_location.save
+
+end
 
 
   def show
-
-    @saved_location = SavedLocation.new
-    @saved_location.business_id = params[:business_id]
-    @saved_location.user_id = @current_user.id
-    @saved_location.save
-
-    redirect_to login_path
+    @saved_locations = SavedLocation.all
+     @businesses = @saved_locations.map do |sl|
+       Yelp.client.business(sl.business_id)
 
   #   @businesses = @current_user.saved_locations.map do |sl|
   #      Yelp.client.business(sl.business_id)
-  #  end
+  #      redirect_to login_path
+    end
   end
 
     # Need to make work. The first problem is with saved_locations. There isn't a saved location for the users

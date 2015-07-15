@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'yelps#index'
 
-  # get '/show' => 'yelps#show', as: :show
+  #  get '/show' => 'yelps#show', as: :show
   get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create', as: :users
 
@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   post '/auth' => 'session#create', as: :auth
   get '/logout' => 'session#destroy', as: :logout
 
-  get '/saved_locations' => 'yelps#show'
-  post '/saved_locations' => 'yelps#create', as: :saved_location
+  get '/saved_locations' => 'yelps#show', as: :saved_locations
+  post '/saved_location' => 'yelps#create'
 
 
 
