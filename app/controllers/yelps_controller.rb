@@ -35,33 +35,48 @@ require 'yelp'
   end
 
 
-  def saved_location
-
-    @saved_location = SavedLocations.new
-    @saved_location.business_id = params[:business_id]
-    @saved_location.user_id = @current_user.id
-    @saved_location.save
-    redirect_to show_path
-
-  end
-
+  # def create
+  #
+  #   @saved_location = SavedLocation.new
+  #   @saved_location.business_id = params[:business_id]
+  #   @saved_location.user_id = @current_user.id
+  #   @saved_location.save
+  #   redirect_to root_path
+  # end
 
 
   def show
 
-    # Need to make work. The first problem is with saved_locations. There isn't a saved location for the users
+    @saved_location = SavedLocation.new
+    @saved_location.business_id = params[:business_id]
+    @saved_location.user_id = @current_user.id
+    @saved_location.save
 
-    @businesses = @current_user.saved_location.map do |sl|
-      Yelp.client.business(sl.business_id)
-    end
+    redirect_to login_path
+
+  #   @businesses = @current_user.saved_locations.map do |sl|
+  #      Yelp.client.business(sl.business_id)
+  #  end
+  end
+
+    # Need to make work. The first problem is with saved_locations. There isn't a saved location for the users
+    # saved_locations = @saved_location.all
+
+    #  @businesses = @current_user.saved_locations.map do |sl|
+    #    Yelp.client.business(sl.business_id)
+    #  end
 
 
 
   # Allows you to show 1 business on the show screen. doesn't save them there. only shows once you click on the link
 
-  #   business_id = params[:business_id]
-  #   @business = Yelp.client.business(business_id)
-  #   render :show, locals: {business: @business}
-   end
+    # business_id = params[:business_id]
+    # @business = Yelp.client.business(business_id)
+    # render :show, locals: {business: @business}
+
+    # @businesses = @current_user.saved_locations.map do |sl|
+    #   Yelp.client.business(sl.business_id)
+    # end
+  #  end
 
 end
