@@ -1,12 +1,9 @@
 <div class="col-md-6">
 
-  <%= @business %> <br>
-  <%= @business.name %><br>
-  <%= @business.categories %><br>
-  <%= @business.id %><br>
-
-
-
+  <!-- <% @response.businesses.each do |response_id|%>
+  <%= @business_id = response_id.id%>
+  <%  @business = Yelp.client.business(@business_id)%>
+   <%end%> -->
 
 
   <h2> There are <%= @response.total%> <%= "#{@category}"%> in your search area of <%="#{@city}"%></h2>
@@ -65,13 +62,10 @@
 
     <% end %>
     <br>
-    <% if %>
-      <%= link_to "Save this #{@category}", show_path %>
-      <% @response_id == business.id  %>
 
-      <% end %>
+      <%= link_to "Save this #{@category}", show_path(business_id: business.id) %>
 
-    <h1><%= business.id %></h1>
+
   </div>
   </div>
   <% end %>
