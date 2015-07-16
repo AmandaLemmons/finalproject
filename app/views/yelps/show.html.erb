@@ -1,10 +1,10 @@
 <h1> Hello <%=@current_user.username %> </h1>
 
-<p> Here are all of your saved locations: </p>
 
-
+<%= @businesses.count %>
 
 <% @businesses.each do |business|%>
+
   <% if %>
     <% business.has_key? 'image_url' %>
     <%= image_tag business.image_url %>
