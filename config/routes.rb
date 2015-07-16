@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'yelps#index'
 
   get '/signup' => 'users#new', as: :signup
@@ -9,8 +10,11 @@ Rails.application.routes.draw do
   post '/auth' => 'session#create', as: :auth
   get '/logout' => 'session#destroy', as: :logout
 
-   get '/saved_locations' => 'yelps#show'
-  post '/saved_locations' => 'yelps#create', as: :saved_location
+  get 'savedlocations/' => 'savedlocations#show', as: :saved_locations
+
+  post 'savedlocations/' => 'savedlocations#create', as: :saved_location
+
+  delete 'savedlocations/:business_id' => 'savedlocations#destroy', as: :delete_location
 
 
 

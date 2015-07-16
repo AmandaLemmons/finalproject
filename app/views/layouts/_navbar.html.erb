@@ -3,6 +3,8 @@
     <div class="navbar-header">
       <%= link_to "PawzOnTour", root_path, class: "navbar-brand" %>
     </div>
+    
+    <% if current_page? root_path %>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -15,6 +17,9 @@
 
         </form>
       </ul>
+
+      <% else %>
+      <% end %>
 
       <ul class="nav navbar-nav navbar-right">
 

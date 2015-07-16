@@ -1,9 +1,11 @@
 <h1> Hello <%=@current_user.username %> </h1>
 
+<% unless @businesses == nil %>
 
-<%= @businesses.count %>
 
-<% @businesses.each do |business|%>
+<h3> You have <%= @businesses.count %> locations saved. </h3>
+
+  <% @businesses.each do |business| %>
 
   <% if %>
     <% business.has_key? 'image_url' %>
@@ -50,6 +52,10 @@
       <% end %>
   <% else %>
     <p> There is an address available for this busness </p>
+  <% end %>
+  <%= link_to "Delete This location", delete_location_path(business_id: business.id), :method => :delete %>
 
   <% end %>
+
+  <% else %>
   <% end %>
