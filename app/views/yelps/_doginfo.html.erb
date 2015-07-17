@@ -59,7 +59,7 @@
     <% if @current_user.nil? %>
 
     <% else %>
-      <%= link_to "Save this #{@category}", saved_locations_path(business_id: business.id) %>
+      <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post %>
     <% end %>
 
 <!-- business_id: business.id) -->

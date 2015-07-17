@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'savedlocations/' => 'savedlocations#show', as: :saved_locations
 
-  post 'savedlocations/' => 'savedlocations#create', as: :saved_location
+  post 'savedlocation' => 'savedlocations#create', as: :saved_location
 
   delete 'savedlocations/:business_id' => 'savedlocations#destroy', as: :delete_location
 

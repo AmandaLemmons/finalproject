@@ -1,22 +1,17 @@
 class SavedlocationsController < ApplicationController
 
 # Create function doesn't work. It doenst' save them...why??
-# Show function can save them but if I refresh the page it will resave teh last one. 
+# Show function can save them but if I refresh the page it will resave teh last one.
 
   def create
     @saved_location = SavedLocation.new
     @saved_location.business_id = params[:business_id]
     @saved_location.user_id = @current_user.id
     @saved_location.save
-    render :show
+    redirect_to saved_locations_path
   end
 
   def show
-
-    @saved_location = SavedLocation.new
-    @saved_location.business_id = params[:business_id]
-    @saved_location.user_id = @current_user.id
-    @saved_location.save
 
     @saved_locations = SavedLocation.all
 
@@ -24,9 +19,9 @@ class SavedlocationsController < ApplicationController
       saved_locations_user_id.user_id == @current_user.id
     end
 
-      @businesses = @saved_locations_user_ids.map do |sl|
-       Yelp.client.business(sl.business_id)
-       end
+    @businesses = @saved_locations_user_ids.map do |sl|
+     Yelp.client.business(sl.business_id)
+     end
   end
 
   def destroy

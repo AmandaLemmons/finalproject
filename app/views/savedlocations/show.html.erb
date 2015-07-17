@@ -9,20 +9,4 @@
   </div>
 
 
-   <script>
-
-   $(window).ready(function(){
-
-    window.map.setView([<%= [@businesses.first.location.coordinate.latitude, @businesses.first.location.coordinate.longitude].join(",") %>], 10);
-
-
-     <% @businesses.each do |business| %>
-     <% puts business.inspect %>
-       var marker = L.marker([<%= [business.location.coordinate.latitude, business.location.coordinate.longitude].join(",") %>]).addTo(window.map);
-       marker.bindPopup("<h4> <%= business.name %> </h4> <h5> <% business.location.display_address.each do |a| %> <%= a[0..-1] %> <br> <% end %> </h5> <h6><%= business.display_phone %> </h6>");
-
-     <% end %>
-
-
-   });
-   </script>
+  
