@@ -1,5 +1,8 @@
 class SavedlocationsController < ApplicationController
 
+# Create function doesn't work. It doenst' save them...why??
+# Show function can save them but if I refresh the page it will resave teh last one. 
+
   def create
     @saved_location = SavedLocation.new
     @saved_location.business_id = params[:business_id]

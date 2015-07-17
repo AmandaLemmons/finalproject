@@ -1,61 +1,28 @@
-<h1> Hello <%=@current_user.username %> </h1>
 
-<% unless @businesses == nil %>
-
-
-<h3> You have <%= @businesses.count %> locations saved. </h3>
-
-  <% @businesses.each do |business| %>
-
-  <% if %>
-    <% business.has_key? 'image_url' %>
-    <%= image_tag business.image_url %>
-  <% else %>
-    <p> There isn't an availabe picture for this business. </p>
-  <% end %>
+  <div class="doginfo">
+    <%= render partial: 'users_saved_locations' %>
   </div>
 
-  <div class="media-body">
-  <h3 class="media-heading"> <%= business.name %> </h3>
-  <% if %>
-    <% business.has_key? 'rating'%>
-    <p><%= business.rating %> out of <%= business.review_count %> reviews</p>
-  <% else %>
-    <p> There isn't a rating for this business. </p>
-  <% end %>
+  <div class="col-md-6">
+     <div id="map">
+     </div>
+  </div>
 
-  <% if %>
-    <% business.has_key? 'url' %>
-    <%= link_to business.url, (business.url) %>
-  <% else %>
-    <p> There isn't a url for this business. </p>
-  <% end %>
 
-  <% if %>
-    <% business.has_key? 'snippet_text' %>
-    <p> <%= business.snippet_text %></p>
-  <% else %>
-    <p> There isn't a recent review about this business. </p>
-  <% end %>
+   <script>
 
-  <% if %>
-    <% business.has_key? 'display_phone' %>
-    <p> <%= business.display_phone %></p>
-  <% else %>
-  <p> There is no phone number available for this business </p>
-  <%end%>
+   $(window).ready(function(){
 
-  <% if %>
-    <% business.has_key? 'location' %>
-      <% business.location.display_address.each do |a| %>
-      <p><%= a[0..-1] %></p>
-      <% end %>
-  <% else %>
-    <p> There is an address available for this busness </p>
-  <% end %>
-  <%= link_to "Delete This location", delete_location_path(business_id: business.id), :method => :delete %>
+    window.map.setView([<%= [@businesses.first.location.coordinate.latitude, @businesses.first.location.coordinate.longitude].join(",") %>], 10);
 
-  <% end %>
 
-  <% else %>
-  <% end %>
+     <% @businesses.each do |business| %>
+     <% puts business.inspect %>
+       var marker = L.marker([<%= [business.location.coordinate.latitude, business.location.coordinate.longitude].join(",") %>]).addTo(window.map);
+       marker.bindPopup("<h4> <%= business.name %> </h4> <h5> <% business.location.display_address.each do |a| %> <%= a[0..-1] %> <br> <% end %> </h5> <h6><%= business.display_phone %> </h6>");
+
+     <% end %>
+
+
+   });
+   </script>
