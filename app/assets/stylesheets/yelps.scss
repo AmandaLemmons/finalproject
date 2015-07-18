@@ -15,7 +15,7 @@
        margin-top: 0px;
      }
      h3 {
-       color: #6ed3cf;
+       color: #9068be;
      }
      p {
        color: #9068be;
@@ -107,3 +107,17 @@
     color: #6ed3cf;
     border: solid 1px #6ed3cf;
   }
+
+.media {
+  background-color: lighten(#6ed3cf, 30%);
+  border: solid 1px #e62739;
+  padding: 20px;
+  img {
+    width: 150px;
+  }
+}
+
+.media-object {
+  width: 150px;
+  height: 150px;
+}

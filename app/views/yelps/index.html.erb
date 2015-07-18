@@ -1,14 +1,15 @@
 
+<div class="col-md-12">
+   <div id="map">
+   </div>
+</div>
+
 <div class="doginfo">
   <% if @category.present? && @city.present? %>
     <%= render partial: 'doginfo' %>
   <% end %>
 </div>
 
-<div class="col-md-6">
-   <div id="map">
-   </div>
-</div>
 
  <script>
  $(window).ready(function(){
