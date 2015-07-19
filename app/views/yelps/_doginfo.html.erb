@@ -1,49 +1,54 @@
-<div class="col-md-12">
-
-  <h2> There are <%= @response.total%> <%= "#{@category}"%> in your search area of <%="#{@city}"%></h2>
+<div class="col-md-12 results_found">
+  <br>
+  <h1> There are <%= @response.total%> <%= "#{@category}"%> in your search area of <%="#{@city}"%></h1>
   <br>
 
 
+  <div class="row">
   <% @response.businesses.take(10).each do |business| %>
+  <div class="col-md-4">
+
   <div class="media">
 
-    <div class="media-left">
-      <div class="media-object">
+    <div class="media-body">
+      <h2 class="media-heading"> <%= business.name %> </h2>
       <% if %>
-        <% business.has_key? 'image_url' %>
-        <%= link_to(image_tag("#{business.image_url}"), business.url) %>
+        <% business.has_key? 'rating'%>
+        <p> <%= business.rating %> out of <%= business.review_count %> reviews </p>
       <% else %>
-        <p> There isn't an availabe picture for this business. </p>
+        <p> There isn't a rating for this business.</p>
       <% end %>
-      </div>
-    </div>
-  <div class="media-body">
-    <h3 class="media-heading"> <%= business.name %> </h3>
-    <% if %>
-      <% business.has_key? 'rating'%>
-      <p><%= business.rating %> out of <%= business.review_count %> reviews</p>
-    <% else %>
-      <p> There isn't a rating for this business. </p>
-    <% end %>
 
+      <% if @current_user.nil? %>
+      <% else %>
+        <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default login-btn" %>
+      <% end %>
+
+    </div> <!-- div media body -->
+
+    <div class="media-right">
+
+        <% if %>
+          <% business.has_key? 'image_url' %>
+          <%= link_to(image_tag("#{business.image_url}"), business.url) %>
+        <% else %>
+          <p> There isn't an availabe picture for this business. </p>
+        <% end %>
+
+    </div>   <!-- div media-right -->
+
+    <div>
+      <br>
     <% if %>
       <% business.has_key? 'snippet_text' %>
-      <p> <%= business.snippet_text %></p>
+      <p> <%= business.snippet_text.truncate(150) %> </p>
     <% else %>
-      <p> There isn't a recent review about this business. </p>
+      <p>There isn't a recent review about this business.</p>
     <% end %>
+    </div>
 
-    <% if @current_user.nil? %>
-
-    <% else %>
-      <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default login-btn" %>
-    <% end %>
-
-<!-- business_id: business.id) -->
-
-
-<!-- path_(business_id: business.id) -->
-  </div> <!-- div media body -->
-  </div>   <!-- div media -->
+    </div> <!-- div media -->
+    </div> <!--col-md-4-->
   <% end %>
-</div>
+  </div> <!--row-->
+</div> <!--col-md-12-->

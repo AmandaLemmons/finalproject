@@ -14,7 +14,7 @@
  <script>
  $(window).ready(function(){
 
-   window.map.setView([<%= [@response.businesses.first.location.coordinate.latitude, @response.businesses.first.location.coordinate.longitude].join(",") %>], 10);
+   window.map.setView([<%= [@response.businesses.first.location.coordinate.latitude, @response.businesses.first.location.coordinate.longitude].join(",") %>], 12);
 
 
    <% @response.businesses.take(20).each do |business| %>
