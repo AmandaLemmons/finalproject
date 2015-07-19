@@ -1,66 +1,81 @@
-<div class="col-md-6">
+<div class="col-md-12 results_found">
+  <br>
   <h1> Hello <%= @current_user.username %> </h1>
 
   <% unless @businesses == nil %>
-
-    <h2> You have <%= @businesses.count %> locations saved. </h2>
+    <h2> You have <%= @businesses.count %> locations saved.
+    </h2>
     <br>
 
-      <% @businesses.each do |business| %>
-      <div class="media">
+  <div class="row">
+    <% @businesses.each do |business| %>
+      <div class="col-md-4">
 
-      <div class="media-right">
+        <div class="media">
+
+        <div class="media-body">
+
+          <h2 class="media-heading"> <%= business.name %>
+          </h2>
+
+          <% if %>
+            <% business.has_key? 'rating'%>
+            <p><%= business.rating %> out of <%= business.review_count %> reviews</p>
+          <% else %>
+            <p> There isn't a rating for this business. </p>
+          <% end %>
+
+          <%= link_to "Delete This location", delete_location_path(business_id: business.id), :method => :delete, class:"btn btn-default login-btn" %>
+
+        </div> <!-- div media body -->
+
+        <div class="media-right">
+
       <% if %>
         <% business.has_key? 'image_url' %>
         <%= image_tag business.image_url %>
       <% else %>
         <p> There isn't an availabe picture for this business. </p>
       <% end %>
-      </div>
+      </div> <!-- div media-right -->
 
-      <div class="media-body">
-      <h3 class="media-heading"> <%= business.name %> </h3>
-      <% if %>
-        <% business.has_key? 'rating'%>
-        <p><%= business.rating %> out of <%= business.review_count %> reviews</p>
-      <% else %>
-        <p> There isn't a rating for this business. </p>
-      <% end %>
-
-      <% if %>
-        <% business.has_key? 'url' %>
-        <%= link_to business.url, (business.url) %>
-      <% else %>
-        <p> There isn't a url for this business. </p>
-      <% end %>
-
-      <% if %>
-        <% business.has_key? 'snippet_text' %>
-        <p> <%= business.snippet_text %></p>
-      <% else %>
-        <p> There isn't a recent review about this business. </p>
-      <% end %>
-
-      <% if %>
-        <% business.has_key? 'display_phone' %>
-        <p> <%= business.display_phone %></p>
-      <% else %>
-      <p> There is no phone number available for this business </p>
-      <%end%>
-
-      <% if %>
-        <% business.has_key? 'location' %>
-          <% business.location.display_address.each do |a| %>
-          <p><%= a[0..-1] %></p>
+      <div>
+        <br>
+          <% if %>
+            <% business.has_key? 'url' %>
+            <%= link_to business.url, (business.url) %>
+          <% else %>
+            <p> There isn't a url for this business. </p>
           <% end %>
-      <% else %>
-        <p> There is an address available for this busness </p>
-      <% end %>
-      <%= link_to "Delete This location", delete_location_path(business_id: business.id), :method => :delete, class:"btn btn-default login-btn" %>
-    </div>
-    </div>
 
-      <% end %>
-    <% else %>
+          <% if %>
+            <% business.has_key? 'snippet_text' %>
+            <p> <%= business.snippet_text %></p>
+          <% else %>
+            <p> There isn't a recent review about this business. </p>
+          <% end %>
+
+          <% if %>
+            <% business.has_key? 'display_phone' %>
+            <p> <%= business.display_phone %></p>
+          <% else %>
+          <p> There is no phone number available for this business </p>
+          <%end%>
+
+          <% if %>
+            <% business.has_key? 'location' %>
+              <% business.location.display_address.each do |a| %>
+              <p><%= a[0..-1] %></p>
+              <% end %>
+          <% else %>
+            <p> There is an address available for this busness </p>
+          <% end %>
+
+        </div> <!-- blank div-->
+        </div> <!-- div media -->
+      </div> <!--col-md-4-->
     <% end %>
-</div>
+  </div> <!--row -->
+  <% else %>
+  <% end %>
+</div> <!--col-md-12-->
