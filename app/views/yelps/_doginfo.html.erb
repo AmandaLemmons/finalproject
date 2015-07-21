@@ -22,8 +22,10 @@
       <% end %>
 
       <% if @current_user.nil? %>
+      <%= link_to "Save this #{@category}", login_path, remote: true, class:"btn btn-default save-btn" %>
       <% else %>
-        <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default login-btn" %>
+      <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default save-btn" %>
+
       <% end %>
 
     </div> <!-- div media body -->

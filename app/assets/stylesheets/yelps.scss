@@ -3,16 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
    #map {
      width: 100%;
-     height: 500px;
+     height: 400px;
      border: solid #00c5ec 3px;
    }
 
    .landing_title {
-     padding-top: 510px;
+     padding-top: 350px;
    }
 
    .landing {
-    background: image-url("b.jpg")no-repeat center center fixed;
+    background: image-url("pop.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -23,10 +23,10 @@
     }
     h1{
       color: white;
-      font-size: 45px;
+      font-size: 30px;
     }
     .login-btn {
-      font-size: 25px;
+      font-size: 15px;
     }
   }
 
@@ -41,36 +41,35 @@
      }
      p {
        color: #9068be;
-       font-size: 16px;
+       font-size: 12px;
      }
    }
    .navbar {
       margin-bottom: 10px;
       font-family: 'Shadows Into Light Two', cursive;
-      font-size: 30px;
+      font-size: 25px;
       padding: 10px;
       background-color: #00c5ec;
-      .navbar-header a {
+    .navbar-header a {
         color: white;
         font-weight: bolder;
-      }
-      .navbar-header a:hover {
+    }
+    .navbar-header a:hover {
           color: #9068be;
-      }
+    }
     .navbar-brand {
-      font-size: 30px;
+      font-size: 25px;
     }
     #category.form-control, #city.form-control {
       border-color: solid #9068be;
-      font-size: 20px;
+      font-size: 15px;
       background-color: #edd5d1;
       color: #555555;
     }
-
     .btn.btn-default {
       color: #555555;
       border-color: solid  #00c5ec;
-      font-size: 20px;
+      font-size: 15px;
       background-color: #edd5d1;
     }
     .btn.btn-default:hover {
@@ -82,6 +81,11 @@
     }
     .navbar-nav li a:hover {
       color: #9068be;
+    }
+    .form-inline {
+      padding-top: 6px;
+      font-size: 12px;
+      padding-left: 20px;
     }
   }
 
@@ -95,33 +99,40 @@
     color: #9068be;
     font-size: 20px;
   }
+  .modal-body h3{
+    text-align: center;
+  }
   .login-btn {
     background-color: #00c5ec;
     color: white;
-    font-size: 10px;
+    font-size: 15px;
   }
   .login-btn:hover {
     background-color: #9068be;
     color: white;
   }
 
-.media {
-  background-color: lighten(#6ed3cf, 35%);
-  // border: solid 1px #e62739;
-  padding: 10px;
-  height: 250px;
-  margin-bottom: 15px;
-  text-align: left;
-  h2 {
+  .media {
+    background-color: lighten(#6ed3cf, 35%);
+    padding: 10px;
+    height: 250px;
+    margin-bottom: 15px;
+    text-align: left;
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .media-object {
+    width: 100px;
+  }
+
+  .results_found {
     text-align: center;
   }
-}
 
-.media-object {
-  width: 100px;
-}
-
-.results_found {
-  text-align: center;
-
-}
+  .save-btn {
+    background-color: #00c5ec;
+    color: white;
+    font-size: 10px;
+  }

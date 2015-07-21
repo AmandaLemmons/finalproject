@@ -1,21 +1,27 @@
+<div class="row">
+  <h3> Sign in </h3>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag auth_path, remote: true, method: :post do %>
 
-  <%= form_tag auth_path, remote: true, method: :post do %>
+      <div>
+        <%= label_tag :email%>
+        <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Email" %>
+        <br>
+      </div>
 
-    <div>
-      <%= label_tag :email%>
-      <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Email" %>
-      <br>
-    </div>
+      <div>
+        <%= label_tag :password %>
+        <%= password_field_tag :password, "",  class: "form-control", placeholder: "Password"%>
+        <br>
+      </div>
 
-    <div>
-      <%= label_tag :password %>
-      <%= password_field_tag :password, "",  class: "form-control", placeholder: "Password"%>
-      <br>
-    </div>
+      <div>
+        <%= submit_tag "Log In", class: "btn btn-primary btn-lg login-btn" %>
+        <br>
+        <br>
+      </div>
+    <% end %>
 
-    <div>
-      <%= submit_tag "Log In", class: "btn btn-primary btn-lg login-btn" %>
-      <br>
-      <br>
-    </div>
-  <% end %>
+    <h5> Still don't have an account?  <%= link_to "Sign up Here", signup_path, remote: true %></h5>
+  </div>
+</div>
