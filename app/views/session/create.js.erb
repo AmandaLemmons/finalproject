@@ -1,8 +1,7 @@
 
 <% if session[:user_id] == @user.id%>
   $("#interest-modal").modal("hide");
-  window.location = "/";
-
+  window.location.reload();
 <% else %>
   alert("Something went wrong. Check to see if your username and password are correct. ");
 <% end %>

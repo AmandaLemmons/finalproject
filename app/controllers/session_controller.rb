@@ -12,7 +12,6 @@ class SessionController < ApplicationController
     @user = User.find_by email: email
     if (@user) && (@user.authenticate password)
       session[:user_id] = @user.id
-      # redirect_to root_path
     else
       flash.now[:danger] = "Try again. Invalid email/password combination"
       render :new
