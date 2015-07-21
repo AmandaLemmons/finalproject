@@ -11,6 +11,8 @@ gem 'carrierwave'
 gem 'simple_form', '3.1'
 gem 'kaminari'
 gem 'remotipart', '~> 1.2'
+gem 'carrierwave-aws'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
