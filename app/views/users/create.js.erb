@@ -1,7 +1,7 @@
 <% if @user.save %>
 <% session[:user_id] == @user.id %>
   $("#interest-modal").modal("hide");
-  window.location = "/";
+  window.location = '#{index_path}';
 
 <% else %>
   $(".modal-body").html("<%= j render partial: 'signupform.html.erb'%> ");
