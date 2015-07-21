@@ -24,8 +24,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
-    # when click on link, I want to save the hash["id"] from the link and display it on the show.html.erb
-
   end
 
 
@@ -42,7 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     session.delete :user_id
-    redirect_to login_path
+    redirect_to index_path
   end
 
 

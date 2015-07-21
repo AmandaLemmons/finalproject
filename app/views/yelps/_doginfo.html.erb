@@ -13,6 +13,7 @@
 
     <div class="media-body">
       <h2 class="media-heading"> <%= business.name %> </h2>
+      <br>
       <% if %>
         <% business.has_key? 'rating'%>
         <p> <%= business.rating %> out of <%= business.review_count %> reviews </p>
