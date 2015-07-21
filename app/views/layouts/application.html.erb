@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Final</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,7 +16,6 @@
 </head>
 <body>
   <%= render partial: 'layouts/navbar' %>
-  <%= render partial: 'yelps/carousel' %>
 
 
   <% if flash[:alert] %>
@@ -23,9 +23,9 @@
          <p> The city you entered isn't vaild. Please try again.  </p>
       </div>
   <% end %>
-<div class="container">
+<!-- <div class="container"> -->
 <%= yield %>
 <%= render partial: 'layouts/modal' %>
-</div>
+<!-- </div> -->
 </body>
 </html>

@@ -20,6 +20,11 @@ require 'yelp'
     end
   end
 
+
+  def dashboard
+  end
+  
+
   def index
 
     parameters = { category: "restaurants" }

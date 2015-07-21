@@ -3,13 +3,39 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
    #map {
      width: 100%;
-     height: 600px;
-     border: solid #e62739 3px;
+     height: 500px;
+     border: solid #00c5ec 3px;
    }
+
+   .landing_title {
+     padding-top: 230px;
+   }
+
+   .landing {
+    background: image-url("pops.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 100vh;
+    .intro{
+      padding-bottom: 20px;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+    h1{
+      color: white;
+      font-size: 45px;
+    }
+    .login-btn {
+      font-size: 30px;
+    }
+  }
+
    body {
      background-color: #e1e8f0;
      font-family: 'Shadows Into Light Two', cursive;
-
+     h1 {
+      color: #00c5ec;
+     }
      h2{
        color: #e62739;
        margin-top: 0px;
@@ -23,67 +49,44 @@
      }
    }
    .navbar {
-      margin-bottom: 0px;
-      font-family: 'Clicker Script', cursive;
-      font-size: 40px;
-      color: #9068be;
+      margin-bottom: 10px;
+      font-family: 'Shadows Into Light Two', cursive;
+      font-size: 30px;
       padding: 10px;
-      background-color: #6ed3cf;
+      background-color: #00c5ec;
       .navbar-header a {
-        color: #9068be;
+        color: white;
         font-weight: bolder;
       }
       .navbar-header a:hover {
-          color: #e62739;
+          color: #9068be;
       }
     .navbar-brand {
-      font-size: 40px;
+      font-size: 30px;
     }
-    #category.form-control {
-      color: #9068be;
+    #category.form-control, #city.form-control {
       border-color: solid #9068be;
-      font-size: 24px;
+      font-size: 20px;
       background-color: #edd5d1;
+      color: #555555;
     }
-    #city.form-control {
-      color: #9068be;
-      border-color: solid  #9068be;
-      font-size: 24px;
-      background-color: #edd5d1;
-    }
+
     .btn.btn-default {
-      color: #9068be;
-      border-color: solid  #9068be;
-      font-size: 24px;
+      color: #555555;
+      border-color: solid  #00c5ec;
+      font-size: 20px;
       background-color: #edd5d1;
     }
     .btn.btn-default:hover {
-      color: #e62739;
+      color: #9068be;
     }
     .navbar-nav li a{
-      color: #9068be;
+      color: white;
       font-weight: bolder;
     }
     .navbar-nav li a:hover {
-      color: #e62739;
+      color: #9068be;
     }
-  }
-
-
-  .carousel-inner {
-    width: 100%;
-    height: 600px;
-    margin-bottom: 50px;
-
-  .carousel-caption {
-    position: absolute;
-    z-index:1;
-    width: 200px;
-    }
-  }
-  .img {
-    height: 600px;
-    background-size: cover;
   }
 
   .doginfo {
@@ -97,20 +100,18 @@
     font-size: 20px;
   }
   .login-btn {
-    background-color: #6ed3cf;
-    color: #e62739;
-    border: solid 1px #e62739;
+    background-color: #00c5ec;
+    color: white;
     font-size: 10px;
   }
   .login-btn:hover {
-    background-color: #e62739;
-    color: #6ed3cf;
-    border: solid 1px #6ed3cf;
+    background-color: #9068be;
+    color: white;
   }
 
 .media {
   background-color: lighten(#6ed3cf, 35%);
-  border: solid 1px #e62739;
+  // border: solid 1px #e62739;
   padding: 10px;
   height: 250px;
   margin-bottom: 15px;

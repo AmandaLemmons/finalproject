@@ -1,37 +1,40 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "PawzOnTour", root_path, class: "navbar-brand" %>
-    </div>
+<% if current_page? root_path %>
+<%else%>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "PawzOnTour", index_path, class: "navbar-brand" %>
+      </div>
 
-    <% if current_page? root_path %>
+      <% if current_page? index_path %>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <form class="form-inline">
-          <%= select_tag :category, options_for_select(SearchItem.yelp_categories, params[:category]), class: "form-control chosen-select", prompt: "Select a Category" %>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <form class="form-inline">
+            <%= select_tag :category, options_for_select(SearchItem.yelp_categories, params[:category]), class: "form-control chosen-select", prompt: "Select a Category" %>
 
-            <input type="text" name="city" id="city" class="form-control" placeholder="Please Enter Your City" value="<%= params[:city] %>">
+              <input type="text" name="city" id="city" class="form-control" placeholder="Enter Your City" value="<%= params[:city] %>">
 
-            <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default">Submit</button>
 
-        </form>
-      </ul>
+          </form>
+        </ul>
 
       <% else %>
       <% end %>
 
-      <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
 
-        <% if @current_user.nil? %>
-          <li> <%= link_to "Log in",  login_path, remote: true %> </li>
-          <li> <%=link_to "Sign up", signup_path, remote: true %> </li>
+          <% if @current_user.nil? %>
+            <li> <%= link_to "Log in",  login_path, remote: true %> </li>
+            <li> <%=link_to "Sign up", signup_path, remote: true %> </li>
 
-        <%else%>
-          <li> <%= link_to "Saved Locations", saved_locations_path %></li>
-          <li> <%= link_to "Logout", logout_path %> </li>
-        <%end%>
-      </ul>
+          <%else%>
+            <li> <%= link_to "Saved Locations", saved_locations_path %></li>
+            <li> <%= link_to "Logout", logout_path %> </li>
+          <%end%>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+<%end%>
