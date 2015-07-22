@@ -1,31 +1,30 @@
 <div class="col-md-12 results_found">
   <br>
-  <h1> There are <%= @response.total%> <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h1>
+  <% if @current_user.present? %>
+    <h1>Welcome back <%=@current_user.username.capitalize %>!
+      <br>
+      There are <%= @response.total%> <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h1>
+  <% else %>
+    <h1>There are <%= @response.total%> <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h1>
+  <% end %>
+
   <p> Create an account to save your all of your favorite pawz-friendly places </p>
   <br>
 
 
   <div class="row">
-  <% @response.businesses.take(10).each do |business| %>
+  <% @response.businesses.take(12).each do |business| %>
   <div class="col-md-4">
 
   <div class="media">
 
     <div class="media-body">
-      <h2 class="media-heading"> <%= business.name %> </h2>
-      <br>
+      <h2 class="media-heading"> <%= link_to"#{business.name}", business.url %> </h2>
       <% if %>
         <% business.has_key? 'rating'%>
         <p> <%= business.rating %> out of <%= business.review_count %> reviews </p>
       <% else %>
         <p> There isn't a rating for this business.</p>
-      <% end %>
-
-      <% if @current_user.nil? %>
-      <%= link_to "Save this #{@category}", login_path, remote: true, class:"btn btn-default save-btn" %>
-      <% else %>
-      <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default save-btn" %>
-
       <% end %>
 
     </div> <!-- div media body -->
@@ -45,11 +44,18 @@
       <br>
     <% if %>
       <% business.has_key? 'snippet_text' %>
-      <p> <%= business.snippet_text.truncate(150) %> </p>
+      <p> <%= business.snippet_text %> </p>
     <% else %>
       <p>There isn't a recent review about this business.</p>
     <% end %>
     </div>
+    <br>
+    <% if @current_user.nil? %>
+    <%= link_to "Save this #{@category}", login_path, remote: true, class:"btn btn-default save-btn" %>
+    <% else %>
+    <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default save-btn" %>
+
+    <% end %>
 
     </div> <!-- div media -->
     </div> <!--col-md-4-->

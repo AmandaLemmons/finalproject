@@ -12,11 +12,12 @@
    }
 
    .landing {
-    background: image-url("pop.jpg")no-repeat center center fixed;
+    background: image-url("b.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 100vh;
+
     .intro{
       padding-bottom: 20px;
       text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -53,12 +54,10 @@
     .navbar-header a {
         color: white;
         font-weight: bolder;
+        height: 100px;
     }
     .navbar-header a:hover {
           color: #9068be;
-    }
-    .navbar-brand {
-      font-size: 25px;
     }
     #category.form-control, #city.form-control {
       border-color: solid #9068be;
@@ -74,6 +73,9 @@
     }
     .btn.btn-default:hover {
       color: #9068be;
+    }
+    .navbar-nav{
+      padding-top: 10px;
     }
     .navbar-nav li a{
       color: white;
@@ -115,12 +117,24 @@
   .media {
     background-color: lighten(#6ed3cf, 35%);
     padding: 10px;
-    height: 250px;
+    height: 300px;
     margin-bottom: 15px;
     text-align: left;
     h2 {
       text-align: center;
     }
+  }
+
+  .media-saved-location{
+    background-color: lighten(#6ed3cf, 35%);
+    padding: 10px;
+    height: 400px;
+    margin-bottom: 15px;
+    text-align: left;
+    h2 {
+      text-align: center;
+    }
+
   }
 
   .media-object {

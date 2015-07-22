@@ -22,6 +22,8 @@ class SavedlocationsController < ApplicationController
     @businesses = @saved_locations_user_ids.map do |sl|
      Yelp.client.business(sl.business_id)
      end
+     @businesses = @businesses.reverse_each
+
   end
 
   def destroy
