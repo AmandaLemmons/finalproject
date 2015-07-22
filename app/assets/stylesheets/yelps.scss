@@ -150,3 +150,30 @@
     color: white;
     font-size: 10px;
   }
+
+  @media (max-width: 800px) {
+    .navbar {
+       font-size: 15px;
+       width: 100%;
+       height: 200px;
+       background-color: red;
+       display: inline-block;
+       text-align: center;
+     #category.form-control, #city.form-control {
+       font-size: 10px;
+       display: inline-block;
+       text-align: center;
+     }
+     .btn.btn-default {
+       font-size: 10px;
+       display: inline-block;
+       text-align: center;
+     }
+     .form-inline {
+       font-size: 10px;
+       display: inline-block;
+       text-align: center;
+     }
+    }
+
+  }
