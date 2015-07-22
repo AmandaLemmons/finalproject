@@ -31,12 +31,12 @@
         <ul class="nav navbar-nav navbar-right">
 
           <% if @current_user.nil? %>
-            <li class="active"> <%= link_to "Log in",  login_path, remote: true %> </li>
-            <li class="active"> <%=link_to "Sign up", signup_path, remote: true %> </li>
+            <li class:"login"> <%= link_to "Log in",  login_path, remote: true %> </li>
+            <li> <%=link_to "Sign up", signup_path, remote: true %> </li>
 
           <%else%>
-            <li class="active"> <%= link_to "Saved Locations", saved_locations_path %></li>
-            <li class="active"> <%= link_to "Logout", logout_path %> </li>
+            <li> <%= link_to "Saved Locations", saved_locations_path %></li>
+            <li > <%= link_to "Logout", logout_path %> </li>
           <%end%>
         </ul>
       </div>
