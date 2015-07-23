@@ -7,8 +7,15 @@ require 'yelp'
   end
 
   before_action do
+
+    if Rails.env.development?
+      default_city = "Houston"
+    else
+      default_city = request.location.city
+    end
+
     @category = params[:category] || "restaurants"
-    @city = params[:city] || "Austin"
+    @city = params[:city] || default_city
   end
 
   def auth_user!
@@ -23,7 +30,7 @@ require 'yelp'
 
   def dashboard
   end
-  
+
 
   def index
 

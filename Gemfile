@@ -13,7 +13,7 @@ gem 'simple_form', '3.1'
 gem 'kaminari'
 gem 'remotipart', '~> 1.2'
 gem 'carrierwave-aws'
-
+gem 'geocoder'
 
 
 
