@@ -18,21 +18,6 @@
           <h2 class="media-heading"> <%= link_to"#{business.name}", business.url %>
           </h2>
 
-          <% if %>
-            <% business.has_key? 'rating'%>
-            <p><%= business.rating %> out of <%= business.review_count %> reviews</p>
-          <% else %>
-            <p> There isn't a rating for this business. </p>
-          <% end %>
-
-          <% if %>
-            <% business.has_key? 'display_phone' %>
-            <p> <%= business.display_phone %></p>
-          <% else %>
-          <p> There is no phone number available for this business </p>
-          <%end%>
-
-
         </div> <!-- div media body -->
 
         <div class="media-right">
@@ -52,21 +37,38 @@
           <% else %>
             <p> There isn't a recent review about this business. </p>
           <% end %>
-          <br>
+          <p class="reviews"></p>
 
           <% if %>
             <% business.has_key? 'location' %>
-              <p><%=business.location.display_address.first %><br>
-              <%=business.location.display_address.last %></p>
-            </p>
-
-
+              <p class="reviews_address"><%=business.location.display_address.first %>
+              <br><%=business.location.display_address.last %>
           <% else %>
-            <p> There is an address available for this busness </p>
+            There isn't an address available for this busness
+          <% end %>
+          <br>
+
+          <% if %>
+            <% business.has_key? 'display_phone' %>
+            <%= business.display_phone %>
+          <% else %>
+            There is no phone number available for this business
+
+          <%end%>
+          <br>
+
+
+          <% if %>
+            <% business.has_key? 'rating'%>
+            <p class="reviews"><%= business.rating %> out of <%= business.review_count %> reviews
+          <% else %>
+            There isn't a rating for this business. </p>
           <% end %>
 
+
+
         </div> <!-- blank div-->
-        <br>
+        <p class="reviews"></p>
         <%= link_to "Delete This location", delete_location_path(business_id: business.id), :method => :delete, class:"btn btn-default save-btn" %>
 
         </div> <!-- div media -->

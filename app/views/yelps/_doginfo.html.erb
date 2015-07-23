@@ -20,12 +20,6 @@
 
     <div class="media-body">
       <h2 class="media-heading"> <%= link_to"#{business.name}", business.url %> </h2>
-      <% if %>
-        <% business.has_key? 'rating'%>
-        <p> <%= business.rating %> out of <%= business.review_count %> reviews </p>
-      <% else %>
-        <p> There isn't a rating for this business.</p>
-      <% end %>
 
     </div> <!-- div media body -->
 
@@ -48,8 +42,16 @@
     <% else %>
       <p>There isn't a recent review about this business.</p>
     <% end %>
+    <p class="reviews"></p>
+    <% if %>
+      <% business.has_key? 'rating'%>
+      <p class="reviews"> <%= business.rating %> out of <%= business.review_count%> reviews </p>
+    <% else %>
+      <p> There isn't a rating for this business.</p>
+    <% end %>
+
     </div>
-    <br>
+      <p class="reviews"></p>
     <% if @current_user.nil? %>
     <%= link_to "Save this #{@category}", login_path, remote: true, class:"btn btn-default save-btn" %>
     <% else %>
