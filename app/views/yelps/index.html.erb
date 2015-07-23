@@ -2,8 +2,10 @@
 <div class="container">
 
 <div class="col-md-12">
-   <div id="map">
-   </div>
+    <% if @response.businesses.any? %>
+     <div id="map">
+     </div>
+   <% end %>
 </div>
 
 <div class="doginfo">
