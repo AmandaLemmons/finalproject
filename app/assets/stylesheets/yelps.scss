@@ -112,6 +112,13 @@
   .modal-body h3{
     text-align: center;
   }
+
+  .modal-header .close{
+    color: #00c5ec;
+    font-size:40px;
+  }
+
+
   .login-btn {
     background-color: #00c5ec;
     color: white;
@@ -171,6 +178,7 @@
     color: white;
   }
 
+
   @media (max-width: 700px) {
     .navbar {
        background-color: #00c5ec;
@@ -181,7 +189,6 @@
        }
      }
      .media {
-       height: 350px;
        padding: 25px;
      }
   }
