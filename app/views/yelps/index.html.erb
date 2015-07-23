@@ -15,9 +15,11 @@
 
  <script>
  $(window).ready(function(){
-
+   <% if @response.businesses.first.nil? %>
+    window.map.setView(request.location.city, 13);
+  <% else %>
    window.map.setView([<%= [@response.businesses.first.location.coordinate.latitude, @response.businesses.first.location.coordinate.longitude].join(",") %>], 12);
-
+  <% end %>
 
    <% @response.businesses.take(20).each do |business| %>
    <% puts business.inspect %>

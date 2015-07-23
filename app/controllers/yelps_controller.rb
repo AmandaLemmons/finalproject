@@ -43,6 +43,11 @@ require 'yelp'
       parameters[:term] = 'pet-friendly'
     end
 
+    if @category.nil? || @city.nil?
+      flash.now[:danger] = "There aren't any matches for your search area."
+      redirect_to index_path
+    end
+
     @response = Yelp.client.search(@city, parameters)
   end
 
