@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   get '/logout' => 'session#destroy', as: :logout
 
   get 'savedlocations/' => 'savedlocations#show', as: :saved_locations
-
   post 'savedlocation' => 'savedlocations#create', as: :saved_location
-
   delete 'savedlocations/:business_id' => 'savedlocations#destroy', as: :delete_location
+
+  get 'trips' => 'trips#new', as: :new_trip
+  post 'trips' => 'trips#create', as: :trip
 
 
 

@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :password_confirmation, presence: true
 
-  has_many :saved_location
+  has_many :trips
+  has_many :saved_locations, through: :trips
+
 
 
   # validates :photo, presence: true

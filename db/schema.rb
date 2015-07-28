@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715133314) do
+ActiveRecord::Schema.define(version: 20150728160011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,10 +35,12 @@ ActiveRecord::Schema.define(version: 20150715133314) do
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "saved_locations", force: :cascade do |t|
-    t.integer  "user_id"
     t.string   "business_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "comment"
+    t.integer  "trip_id"
+    t.integer  "user_id"
   end
 
   create_table "search_items", force: :cascade do |t|
@@ -46,6 +48,15 @@ ActiveRecord::Schema.define(version: 20150715133314) do
     t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "saved_locations"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
