@@ -13,6 +13,7 @@ class TripsController < ApplicationController
   end
 
   def add_location
+
     @saved_location = SavedLocation.new
     @saved_locations = SavedLocation.all
 
@@ -24,6 +25,13 @@ class TripsController < ApplicationController
      Yelp.client.business(sl.business_id)
      end
      @businesses = @businesses.reverse_each
+
+     @trips = Trip.all
+     
+     @trip = @trips.select do |trip|
+       trip.user_id == @current_user.id
+     end
+
 
   end
 

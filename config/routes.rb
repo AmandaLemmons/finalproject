@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete 'savedlocations/:business_id' => 'savedlocations#destroy', as: :delete_location
 
   get '/trip/new' => 'trips#new', as: :new_trip
+  post 'trip' => 'trips#add_location', as: :trip
   get 'trip/show' => 'trips#show', as: :show_trip
   post '/trips' => 'trips#create', as: :trips
   get 'add_location' => 'trips#add_location', as: :add_location

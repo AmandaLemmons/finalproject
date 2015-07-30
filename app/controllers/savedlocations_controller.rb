@@ -54,3 +54,61 @@ class SavedlocationsController < ApplicationController
   # end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+# require 'yelp'
+#   def create
+#     @saved_location = SavedLocation.new
+#     @saved_location.business_id = params[:business_id]
+#     @saved_location.user_id = @current_user.id
+#     @saved_location.save
+#     redirect_to saved_locations_path
+#   end
+#
+#   def show
+#
+#     @saved_locations = SavedLocation.all
+#
+#     @saved_locations_user_ids = @saved_locations.select do |saved_locations_user_id|
+#       saved_locations_user_id.user_id == @current_user.id
+#     end
+#
+#     @businesses = @saved_locations_user_ids.map do |sl|
+#      Yelp.client.business(sl.business_id)
+#      end
+#
+#      @businesses = @businesses.reverse_each
+#
+#     #  @trips = Trip.all.order("created_at desc")
+#     #
+#     # @current_user_trips = @trips.select do |trip|
+#     #   trip.user_id == @current_user.id
+#     # end
+#
+#
+#   end
+#
+#   def destroy
+#     @saved_locations = SavedLocation.all
+#     @saved_locations.each do |sl|
+#       if sl.business_id == params[:business_id]
+#         sl.destroy
+#       else
+#       end
+#     end
+#     redirect_to saved_locations_path
+#   end
+#
+#
+#
+# end
