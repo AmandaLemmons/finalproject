@@ -1,16 +1,7 @@
-<% if @trip.save %>
-  $("#interest-modal").modal("hide");
-  window.location.reload();
-
-<% else %>
-  $(".modal-body").html("<%= j render partial: '/trips/form'%> ");
-  $("#interest-modal").modal("show");
-<% end %>
-
 
 <% if @trip.errors.none? %>
   $("#super-wicked-modal").modal("hide");
-  $(".show_post").html("<%= j render partial: 'posts' %>");
+
 <%else %>
   $(".modal-body").html("<%= j render partial: 'form' %>");
 <% end %>

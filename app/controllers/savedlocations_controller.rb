@@ -9,6 +9,8 @@ class SavedlocationsController < ApplicationController
   end
 
   def show
+
+
     @saved_locations = SavedLocation.all
 
     @saved_locations_user_ids = @saved_locations.select do |saved_locations_user_id|

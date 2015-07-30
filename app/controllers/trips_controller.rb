@@ -2,15 +2,33 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-    @trip = Trip.find_by params[:id]
   end
+
+
 
   def create
     @trip = Trip.new params.require(:trip).permit(:name, :description)
     @trip.user_id = @current_user.id
-    @trip.save
-    redirect_to saved_locations_path
+    if @trip.save
+      redirect_to saved_locations_path
+    else
+      redirect_to root_path
+    end
+
   end
+
+
+    def show
+      @trip = Trip.find params[:id]
+      @trips = Trip.all
+    end
+
+
+
+
+
+
+
 
 
 

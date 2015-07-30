@@ -1,9 +1,4 @@
-
-<%= simple_form_for @trip do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.submit class: "btn btn-primary btn-lg" %>
- <%end%>
-
- <%= @trip.name %>
-  <%= @trip.description %>
+<% @trips.each do |trip| %>
+  <%= trip.name %>
+  <%= trip.description %>
+<% end %>

@@ -1,5 +1,5 @@
-<%= simple_form_for @trip, remote: true do |f| %>
+<%= simple_form_for @trip do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.button :submit, class: "btn btn-primary btn-lg" %>
- <%end%>
+  <%= f.submit  class: "btn btn-primary btn-lg" %>
+<%end%>
