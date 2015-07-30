@@ -1,0 +1,4 @@
+<%= simple_form_for @saved_location do |f| %>
+  <%= f.association :trip, as: :check_boxes %>
+  <%= f.button :submit %>
+<% end %>

@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get '/trip/new' => 'trips#new', as: :new_trip
   get 'trip/show' => 'trips#show', as: :show_trip
   post '/trips' => 'trips#create', as: :trips
-  delete '/trips/:id'=> 'trips#destroy', as: :delete_trip 
+  get 'add_location' => 'trips#add_location', as: :add_location
+  delete '/trips/:id'=> 'trips#destroy', as: :delete_trip
 
 
 

@@ -8,11 +8,23 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new params.require(:trip).permit(:name, :description)
     @trip.user_id = @current_user.id
-    if @trip.save
-      redirect_to saved_locations_path
-    else
-      redirect_to root_path
+    @trip.save
+    redirect_to saved_locations_path
+  end
+
+  def add_location
+    @saved_location = SavedLocation.new
+    @saved_locations = SavedLocation.all
+
+    @saved_locations_user_ids = @saved_locations.select do |saved_locations_user_id|
+      saved_locations_user_id.user_id == @current_user.id
     end
+
+    @businesses = @saved_locations_user_ids.map do |sl|
+     Yelp.client.business(sl.business_id)
+     end
+     @businesses = @businesses.reverse_each
+
   end
 
   def destroy
