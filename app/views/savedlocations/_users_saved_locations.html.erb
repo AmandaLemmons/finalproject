@@ -2,7 +2,10 @@
 <div class="col-md-12 results_found">
   <br>
 
-<%= link_to "Create a trip", new_trip_path, class:"btn btn-default save-btn" %>
+<div>
+  <%= render partial: '/trips/add_trip' %>
+</div>
+
 
 
   <br>

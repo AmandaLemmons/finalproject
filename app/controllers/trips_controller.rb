@@ -5,7 +5,6 @@ class TripsController < ApplicationController
   end
 
 
-
   def create
     @trip = Trip.new params.require(:trip).permit(:name, :description)
     @trip.user_id = @current_user.id
@@ -16,7 +15,6 @@ class TripsController < ApplicationController
     end
 
   end
-
 
     def show
       @trip = Trip.find params[:id]
