@@ -10,7 +10,6 @@ class SavedlocationsController < ApplicationController
 
   def show
 
-
     @saved_locations = SavedLocation.all
 
     @saved_locations_user_ids = @saved_locations.select do |saved_locations_user_id|
@@ -21,6 +20,14 @@ class SavedlocationsController < ApplicationController
      Yelp.client.business(sl.business_id)
      end
      @businesses = @businesses.reverse_each
+
+     @trips = Trip.all.order("created_at desc")
+
+     @current_user_trips = @trips.select do |trip|
+       trip.user_id == @current_user.id
+     end
+
+
   end
 
   def destroy

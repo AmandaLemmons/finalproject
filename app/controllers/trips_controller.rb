@@ -13,34 +13,16 @@ class TripsController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
 
-    def show
-      @trip = Trip.find params[:id]
-      @trips = Trip.all
-    end
+  def destroy
+    @trip = Trip.find params[:id]
+    @trip.destroy
+    redirect_to saved_locations_path
+  end
 
 
 
 
 
-
-
-
-
-
-#
-#   def destroy
-#     @saved_locations = SavedLocation.all
-#     @saved_locations.each do |sl|
-#       if sl.business_id == params[:business_id]
-#         sl.destroy
-#       else
-#       end
-#     end
-#     redirect_to saved_locations_path
-#   end
-#
-# end
 end
