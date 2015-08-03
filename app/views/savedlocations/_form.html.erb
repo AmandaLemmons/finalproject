@@ -1,0 +1,14 @@
+
+
+<%= simple_form_for @trip do |f| %>
+<%= simple_form_for @saved_location do |t| %>
+  <%= f.input :name, label: 'trip name', placeholder:"Trip Name" %>
+  <%= f.input :id, label: 'trip id', :input_html => { :value => @trip.id } %>
+  <%= f.input :description, label: 'trip description', label: false, placeholder:"Describe your Trip" %>
+  <%= t.input :business_id, label: 'business id', placeholder:"Trip Name" %>
+  <%= t.input :trip_id, label: 'trip id', placeholder:"Trip Name", :input_html => { :value => @trip.id } %>
+
+
+  <%= f.button :submit, 'Save', class:"login-btn"  %>
+<% end %>
+<% end %>

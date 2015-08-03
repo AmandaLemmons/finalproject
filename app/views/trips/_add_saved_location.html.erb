@@ -1,14 +1,1 @@
 
-<%= simple_form_for @saved_location do |f| %>
-  <%= f.association :trip, as: :check_boxes %>
-  <%= f.button :submit %>
-<% end %>
-
-
-<% @businesses.each do |business| %>
-  <%= simple_form_for @saved_location do |f| %>
-    <%= business.name %>
-    <%= link_to "add to trip", trip_path, class:"btn-btn default"%>
-  <% end %>
-
-<% end %>

@@ -9,7 +9,7 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <%= link_to "PawzOnTour", index_path, class:"navbar-brand" %>
+         <%= link_to "Paws Friendly", index_path, class:"navbar-brand" %>
       </div>
 
       <% if current_page? index_path %>
@@ -31,8 +31,8 @@
         <ul class="nav navbar-nav navbar-right">
 
           <% if @current_user.nil? %>
-            <li class:"login"> <%= link_to "Log in",  login_path, remote: true %> </li>
-            <li> <%=link_to "Sign up", signup_path, remote: true %> </li>
+            <li class:"login"> <%= link_to "Log in",  login_path %> </li>
+            <li> <%=link_to "Sign up", signup_path %> </li>
 
           <%else%>
             <li> <%= link_to "Saved Locations", saved_locations_path %></li>
