@@ -19,7 +19,6 @@ class SavedlocationsController < ApplicationController
     @businesses = @saved_locations_user_ids.map do |sl|
      Yelp.client.business(sl.business_id)
      end
-
      @businesses = @businesses.reverse_each
 
      @trips = Trip.all.order("created_at desc")
@@ -29,12 +28,24 @@ class SavedlocationsController < ApplicationController
      end
   end
 
-  # def edit
-  #   @saved_location = SavedLocation.find_by(params[:business_id])
-  #   @trip = Trip.find params[:id]
-  # end
-  #
-  # def update
+  def edit
+    @trip = Trip.find params[:id]
+    @saved_location = SavedLocation.find_by(params[:sl])
+  end
+
+
+   def update
+     @trip = Trip.find params[:id]
+     @saved_location = SavedLocation.find_by(params[:sl])
+
+   @saved_location.trip_id = @trip.id
+   @saved_location.save!
+
+   redirect_to saved_locations_path
+
+   @saved_locations = SavedLocation.all
+
+   end
   #   @trip = Trip.find params[:id]
   #   @x = SavedLocation.find_by(params[:sl])
   #   @x.trip_id = @trip.id
@@ -75,19 +86,19 @@ class SavedlocationsController < ApplicationController
     # end
 
 
-    def add_location
-      @trip = Trip.find params[:id]
-      @saved_location = SavedLocation.find_by(params[:sl])
+    # def add_location
+    #   @trip = Trip.find params[:id]
+    #   @saved_location = SavedLocation.find_by(params[:sl])
 
       # @saved_loaction = @saved_location.update_attribute(:trip_id, @trip.id)
       #  @saved_location = @saved_location.update(trip_id: @trip.id)
 
 
 
-      @saved_location.trip_id = @trip.id
-      @saved_location.save!
-
-      redirect_to root_path
+      # @saved_location.trip_id = @trip.id
+      # @saved_location.save!
+      #
+      # redirect_to root_path
 
       #
       # @saved_locations = SavedLocation.all
@@ -109,27 +120,27 @@ class SavedlocationsController < ApplicationController
 
       # @saved_location.update_attributes({:trip_id => @trip.id})
 
-    end
+    #  end
 
-    def change
-      @trip = Trip.find params[:id]
-      @trip = @trip.id
-      @saved_location = SavedLocation.find_by(params[:sl])
-
-      @saved_location.trip_id = @trip
-      @saved_location.save!
-
-      @saved_locations = SavedLocation.all
-
-      @saved_location = @saved_locations.select do |sl|
-      sl.trip_id == @trip
-    end
+    # def change
+    #   @trip = Trip.find params[:id]
+    #   @trip = @trip.id
+    #   @saved_location = SavedLocation.find_by(params[:sl])
+    #
+    #   @saved_location.trip_id = @trip
+    #   @saved_location.save!
+    #
+    #   @saved_locations = SavedLocation.all
+    #
+    #   @saved_location = @saved_locations.select do |sl|
+    #   sl.trip_id == @trip
+    # end
 
       # respond_to do |format|
       #   format.html {redirect_to saved_locations_path, notice: "UPdated"}
       # end
 
-    end
+    # end
 
   def destroy
     @saved_locations = SavedLocation.all

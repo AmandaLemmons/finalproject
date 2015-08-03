@@ -12,8 +12,16 @@
     <br>
 
   <div class="row">
-
+  <%@saved_locations_user_ids.each do |saved_location_id| %>
     <% @businesses.each do |business| %>
+
+        <%=saved_location_id.id%>
+        <%=saved_location_id.user_id%>
+
+
+
+
+
       <div class="col-md-4">
         <div class="media-saved-location">
         <div class="media-body">
@@ -67,13 +75,15 @@
             There isn't a rating for this business. </p>
           <% end %>
       <div> <!-- add to trip -->
-         <!-- @current_user_trips.each do |trip|
-        = trip.name  -->
-           <!-- link_to "add to trip", savedlocations_edit_path(id: trip.id), class:"btn-btn default" -->
-          <!-- <link_to "add to trip", change_path(:id => trip.id, :sl_id => business.id), method: :put, class:"btn-btn default"
-        end  -->
+        <% @current_user_trips.each do |trip| %>
+          <%= trip.name %>
+          <!-- link_to "add to trip", savedlocations_edit_path(id: trip.id), class:"btn-btn default"  -->
+          <%= link_to "add to trip", savedlocations_path(:id => trip.id, :sl_id => saved_location_id.id), method: :patch, class:"btn-btn default" %>
+        <% end %>
 
-<!-- :id => trip.id, :sl_id => business.id -->
+
+
+<!-- <:id => trip.id, :sl_id => business.id -->
       </div><!-- add to trip -->
 
 
@@ -85,6 +95,7 @@
         </div> <!-- div media -->
       </div> <!--col-md-4-->
     <% end %> <!--do-->
+      <%end%>
   </div> <!--row -->
 
   <% else %> <!--unless -->

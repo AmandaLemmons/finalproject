@@ -16,21 +16,21 @@ Rails.application.routes.draw do
   put 'saved/:id/change' => 'savedlocations#change', as: :change
 
   get '/add_location.:id' => 'savedlocations#add_location', as: :add_location
-  # patch 'trip.:id' => 'savedlocations#update', as: :savedlocations
-  # get 'show_added_location/:id/edit' => 'savedlocations#edit', as: :savedlocations_edit
+  patch 'show_added_location/:id' => 'savedlocations#update', as: :savedlocations
+  get 'show_added_location/:id/edit' => 'savedlocations#edit', as: :savedlocations_edit
 
   post 'savedlocation' => 'savedlocations#create', as: :saved_location
   delete 'savedlocations/:business_id' => 'savedlocations#destroy', as: :delete_location
 
 
 
-  # get '/trip/new' => 'trips#new', as: :new_trip
+  get '/trip/new' => 'trips#new', as: :new_trip
   # put 'add_location.id' => 'trips#add_location', as: :add_location
 
-  # put 'trip' => 'trips#add_location', as: :trip
-  # get 'trip/show' => 'trips#show', as: :show_trip
-  # post '/trips' => 'trips#create', as: :trips
-  # delete '/trips/:id'=> 'trips#destroy', as: :delete_trip
+  put 'trip' => 'trips#add_location', as: :trip
+  get 'trip/show' => 'trips#show', as: :show_trip
+  post '/trips' => 'trips#create', as: :trips
+  delete '/trips/:id'=> 'trips#destroy', as: :delete_trip
 
 
 
