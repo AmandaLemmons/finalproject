@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   get '/logout' => 'session#destroy', as: :logout
 
   get 'savedlocations/' => 'savedlocations#show', as: :saved_locations
+  # get 'savedlocations/:business_id' => 'savedlocations#remove_sl_from_trip', as: :remove_sl_from_trip
+  # get 'savedlocations/:id' = 'savedlocations#show_indiv_location', as: :indiv_location
+
   patch 'show_added_location/:id' => 'savedlocations#update', as: :savedlocations
-  get 'show_added_location/:id/edit' => 'savedlocations#edit', as: :savedlocations_edit
+  # get 'show_added_location/:id/edit' => 'savedlocations#edit', as: :savedlocations_edit
   post 'savedlocation' => 'savedlocations#create', as: :saved_location
   delete 'savedlocations/:business_id' => 'savedlocations#destroy', as: :delete_location
 

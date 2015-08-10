@@ -1,9 +1,18 @@
+
+
 <% @businesses.select do |business| %>
   <% trip.saved_locations.each do |sl| %>
     <% if %>
       <% business.id == sl.business_id %>
-      <%= business_name = business.name %>
-      <br>
+      <% business_name = business.name %>
+      <%= link_to "#{ business_name}", "#" %>
+      <% if business_name.present? %>
+        <!-- link_to "Remove from Trip", remove_sl_from_trip_path(business_id: business.id),  class:"btn btn-default"  -->
+        <br>
+      <% end %>
     <% end %>
+
+
+
   <% end %>
 <% end %>

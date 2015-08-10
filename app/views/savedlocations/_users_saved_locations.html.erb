@@ -8,9 +8,9 @@
     </h2>
     <br>
   <div class="row">
+  <!--  show only if saved_location.trip_id = nil -->
+
     <% @businesses.each do |business| %>
-
-
       <div class="col-md-4">
         <div class="media-saved-location">
         <div class="media-body">
@@ -58,11 +58,11 @@
         <div> <!-- add to trip -->
           <% @current_user_trips.each do |trip| %>
             <% @saved_locations_current_user.select{|sl| sl.business_id == business.id}.each do |saved_location_current_user| %>
-
-              <% unless saved_location_current_user.trip == trip %>
-
+              <% if saved_location_current_user.trip.nil? %>
                 <%= link_to "#{trip.name} +", savedlocations_path(:id => trip.id, :sl_id => saved_location_current_user.id), method: :patch, class:"btn btn-default" %>
-              <%end%>
+                <% else%>
+
+              <% end %>
             <%end%>
           <% end %>
         </div><!-- add to trip -->
@@ -71,7 +71,9 @@
           <%= link_to "Delete This location", delete_location_path(business_id: business.id), :method => :delete, class:"btn btn-default save-btn" %>
         </div> <!-- div media -->
       </div> <!--col-md-4-->
+
     <% end %> <!--do-->
+
   </div> <!--row -->
   <% else %> <!--unless -->
   <% end %> <!--unless -->
