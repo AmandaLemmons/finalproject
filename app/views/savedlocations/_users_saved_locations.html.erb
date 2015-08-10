@@ -1,8 +1,5 @@
-
 <div class="col-md-12 results_found">
   <br>
-
-
   <br>
   <h1> Hello <%= @current_user.username.capitalize %> </h1>
 
@@ -10,16 +7,8 @@
     <h2> You have <%= @businesses.count %> saved locations
     </h2>
     <br>
-
   <div class="row">
-  <%@saved_locations_user_ids.each do |saved_location_id| %>
     <% @businesses.each do |business| %>
-
-        <%=saved_location_id.id%>
-        <%=saved_location_id.user_id%>
-
-
-
 
 
       <div class="col-md-4">
@@ -27,17 +16,14 @@
         <div class="media-body">
           <h2 class="media-heading"> <%= link_to "#{business.name}", business.url, :target => "_blank" %>
           </h2>
-
         </div> <!-- div media body -->
-
         <div class="media-right">
-
-      <% if %>
-        <% business.has_key? 'image_url' %>
-        <%= image_tag business.image_url %>
-      <% else %>
-        <p> There isn't an availabe picture for this business. </p>
-      <% end %>
+          <% if %>
+            <% business.has_key? 'image_url' %>
+            <%= image_tag business.image_url %>
+          <% else %>
+            <p> There isn't an availabe picture for this business. </p>
+          <% end %>
       </div> <!-- div media-right -->
       <br>
       <div>
@@ -48,7 +34,6 @@
             <p> There isn't a recent review about this business. </p>
           <% end %>
           <p class="reviews"></p>
-
           <% if %>
             <% business.has_key? 'location' %>
               <p class="reviews_address"><%=business.location.display_address.first %>
@@ -57,47 +42,37 @@
             There isn't an address available for this busness
           <% end %>
           <br>
-
           <% if %>
             <% business.has_key? 'display_phone' %>
             <%= business.display_phone %>
           <% else %>
-            There is no phone number available for this business
-
+            There is not a phone number available for this business
           <%end%>
           <br>
-
-
           <% if %>
             <% business.has_key? 'rating'%>
             <p class="reviews"><%= business.rating %> out of <%= business.review_count %> reviews
           <% else %>
             There isn't a rating for this business. </p>
           <% end %>
-      <div> <!-- add to trip -->
-        <% @current_user_trips.each do |trip| %>
-          <%= trip.name %>
-          <!-- link_to "add to trip", savedlocations_edit_path(id: trip.id), class:"btn-btn default"  -->
-          <%= link_to "add to trip", savedlocations_path(:id => trip.id, :sl_id => saved_location_id.id), method: :patch, class:"btn-btn default" %>
-        <% end %>
+        <div> <!-- add to trip -->
+          <% @current_user_trips.each do |trip| %>
+            <% @saved_locations_current_user.select{|sl| sl.business_id == business.id}.each do |saved_location_current_user| %>
 
+              <% unless saved_location_current_user.trip == trip %>
 
-
-<!-- <:id => trip.id, :sl_id => business.id -->
-      </div><!-- add to trip -->
-
-
-
+                <%= link_to "#{trip.name} +", savedlocations_path(:id => trip.id, :sl_id => saved_location_current_user.id), method: :patch, class:"btn btn-default" %>
+              <%end%>
+            <%end%>
+          <% end %>
+        </div><!-- add to trip -->
         </div> <!-- blank div-->
-        <p class="reviews"></p>
-        <%= link_to "Delete This location", delete_location_path(business_id: business.id), :method => :delete, class:"btn btn-default save-btn" %>
-
+          <p class="reviews"></p>
+          <%= link_to "Delete This location", delete_location_path(business_id: business.id), :method => :delete, class:"btn btn-default save-btn" %>
         </div> <!-- div media -->
       </div> <!--col-md-4-->
     <% end %> <!--do-->
-      <%end%>
   </div> <!--row -->
-
   <% else %> <!--unless -->
   <% end %> <!--unless -->
 </div> <!--col-md-12-->

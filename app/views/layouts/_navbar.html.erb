@@ -14,7 +14,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-      <form class="navbar-form navbar-left form-inline">
+      <form class="navbar-form navbar-left form-inline"  action="<%= url_for(root_path) %>#results">
         <%= select_tag :category, options_for_select(SearchItem.yelp_categories, params[:category]), class: "form-control chosen-select", prompt: "Select a Category" %>
 
           <input type="text" name="city" id="city" class="form-control" placeholder="Enter Your City" value="<%= params[:city] %>">
@@ -24,7 +24,7 @@
       </form>
         </ul>
 
-    
+
 
         <ul class="nav navbar-nav navbar-right">
 

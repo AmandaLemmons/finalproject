@@ -8,8 +8,9 @@
 </div>
 <div class="container">
 
-<div class="col-md-12">
+<div class="col-md-12" id="results">
     <% if @response.businesses.any? %>
+
      <div id="map">
      </div>
    <% end %>
@@ -22,19 +23,17 @@
 </div>
 </div>
 
- <script>
- $(window).ready(function(){
-   <% if @response.businesses.first.nil? %>
-    window.map.setView(request.location.city, 13);
-  <% else %>
-   window.map.setView([<%= [@response.businesses.first.location.coordinate.latitude, @response.businesses.first.location.coordinate.longitude].join(",") %>], 12);
+<script>
+$(window).ready(function(){
+  <% if @response.businesses.first.nil? %>
+   window.map.setView(request.location.city, 13);
+ <% else %>
+  window.map.setView([<%= [@response.businesses.first.location.coordinate.latitude, @response.businesses.first.location.coordinate.longitude].join(",") %>], 12);
+ <% end %>
+  <% @response.businesses.take(20).each do |business| %>
+  <% puts business.inspect %>
+    var marker = L.marker([<%= [business.location.coordinate.latitude, business.location.coordinate.longitude].join(",") %>]).addTo(window.map);
+    marker.bindPopup("<h4> <%= business.name %> </h4> <h5> <% business.location.display_address.each do |a| %> <%= a[0..-1] %> <br> <% end %> </h5>");
   <% end %>
-
-   <% @response.businesses.take(20).each do |business| %>
-   <% puts business.inspect %>
-     var marker = L.marker([<%= [business.location.coordinate.latitude, business.location.coordinate.longitude].join(",") %>]).addTo(window.map);
-     marker.bindPopup("<h4> <%= business.name %> </h4> <h5> <% business.location.display_address.each do |a| %> <%= a[0..-1] %> <br> <% end %> </h5>");
-
-   <% end %>
- });
- </script>
+});
+</script>

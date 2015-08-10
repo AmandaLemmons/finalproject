@@ -1,6 +1,9 @@
-<% @saved_locations.each do |sl| %>
-  <%= sl.trip_id %>
-  <%= sl.business_id %>
-  <%= sl.id %>
-  <br>
-<%end%>
+<% @businesses.select do |business| %>
+  <% trip.saved_locations.each do |sl| %>
+    <% if %>
+      <% business.id == sl.business_id %>
+      <%= business_name = business.name %>
+      <br>
+    <% end %>
+  <% end %>
+<% end %>

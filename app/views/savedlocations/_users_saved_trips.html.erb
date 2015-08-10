@@ -1,32 +1,21 @@
-
 <div class="col-md-12 results_found">
   <br>
-
-
   <div class="row">
   <% @current_user_trips.each do |trip|%>
-
       <div class="col-md-4">
         <div class="media-saved-location">
         <div class="media-body">
           <h2 class="media-heading"> <%=trip.name%>  </h2>
           <h3> <%=trip.description %> </h3>
         </div>  <!-- div media body -->
-
         <div class="media-right">
         </div>  <!-- div media-right -->
         <div>
-
-          <%= link_to "Delete This Trip", delete_trip_path(id: trip.id), :method => :delete, class:"btn btn-default save-btn"  %>
+          <%= render partial: 'update', locals: {trip: trip}%>
+          <%= link_to "Delete This Trip", delete_trip_path(id: trip.id), :method => :delete, class:"btn btn-default save-btn" %>
         </div> <!--div blank -->
-
       </div>   <!-- div media-saved-locaiton -->
       </div> <!--col-md-4-->
-
       <%end %>
-
   </div>    <!--row -->
-
 </div> <!--col-md-12-->
-
-<%= render partial: 'update' %>

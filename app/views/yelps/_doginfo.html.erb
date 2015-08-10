@@ -1,9 +1,8 @@
 <div class="col-md-12 results_found">
   <br>
   <% if @current_user.present? %>
-    <h1>Welcome back <%=@current_user.username.capitalize %>!
-      <br>
-      There are <%= @response.total%> <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h1>
+    <h1>Welcome back <%=@current_user.username.capitalize %>!</h1>
+    <h3>There are <%= @response.total%> <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h3>
   <% else %>
     <h1>There are <%= @response.total%> <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h1>
   <% end %>

@@ -2,33 +2,26 @@ Rails.application.routes.draw do
 
   root 'yelps#index'
 
+
   get '/index' => 'yelps#index', as: :index
   get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create', as: :users
 
 
   get '/login' => 'session#new', as: :login
-  post '/auth' => 'session#create', as: :auth
+  post '/login' => 'session#create', as: :auth
   get '/logout' => 'session#destroy', as: :logout
 
   get 'savedlocations/' => 'savedlocations#show', as: :saved_locations
-
-  put 'saved/:id/change' => 'savedlocations#change', as: :change
-
-  get '/add_location.:id' => 'savedlocations#add_location', as: :add_location
   patch 'show_added_location/:id' => 'savedlocations#update', as: :savedlocations
   get 'show_added_location/:id/edit' => 'savedlocations#edit', as: :savedlocations_edit
-
   post 'savedlocation' => 'savedlocations#create', as: :saved_location
   delete 'savedlocations/:business_id' => 'savedlocations#destroy', as: :delete_location
 
 
 
   get '/trip/new' => 'trips#new', as: :new_trip
-  # put 'add_location.id' => 'trips#add_location', as: :add_location
-
   put 'trip' => 'trips#add_location', as: :trip
-  get 'trip/show' => 'trips#show', as: :show_trip
   post '/trips' => 'trips#create', as: :trips
   delete '/trips/:id'=> 'trips#destroy', as: :delete_trip
 

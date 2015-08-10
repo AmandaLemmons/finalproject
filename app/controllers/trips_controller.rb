@@ -14,7 +14,6 @@ class TripsController < ApplicationController
   end
 
   def add_location
-
     @saved_locations = SavedLocation.all
     @trip = Trip.all
 
