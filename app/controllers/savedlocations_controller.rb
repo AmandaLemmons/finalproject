@@ -10,7 +10,7 @@ class SavedlocationsController < ApplicationController
 
     def show
 
-      @saved_locations = SavedLocation.all.page(params[:page]
+      @saved_locations = SavedLocation.all
 
       @saved_locations_current_user = @saved_locations.select do |saved_locations_user_id|
         saved_locations_user_id.user_id == @current_user.id
