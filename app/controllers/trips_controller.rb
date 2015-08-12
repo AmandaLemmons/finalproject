@@ -14,7 +14,7 @@ class TripsController < ApplicationController
   end
 
   def add_location
-    @saved_locations = SavedLocation.all
+    @saved_locations = SavedLocation.all.page(params[:page])
     @trip = Trip.all
 
     @saved_location = @saved_locations.select do |sl|

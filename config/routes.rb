@@ -2,11 +2,8 @@ Rails.application.routes.draw do
 
   root 'yelps#index'
 
-
-  get '/index' => 'yelps#index', as: :index
   get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create', as: :users
-
 
   get '/login' => 'session#new', as: :login
   post '/login' => 'session#create', as: :auth

@@ -49,6 +49,7 @@ require 'yelp'
     end
 
     @response = Yelp.client.search(@city, parameters)
+    
   end
 
 end

@@ -1,8 +1,9 @@
 <div class="col-md-12 results_found">
+
   <br>
   <% if @current_user.present? %>
     <h1>Welcome back <%=@current_user.username.capitalize %>!</h1>
-    <h3>There are <%= @response.total%> <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h3>
+    <h3> Here are the <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h3>
   <% else %>
     <h1>There are <%= @response.total%> <%= "#{@category.pluralize}"%> in your search area of <%="#{@city}"%></h1>
   <% end %>
@@ -12,7 +13,9 @@
 
 
   <div class="row">
-  <% @response.businesses.take(12).each do |business| %>
+  <% @response.businesses.each do |business| %>
+
+  <!-- take(12) -->
   <div class="col-md-4">
 
   <div class="media">
@@ -44,7 +47,7 @@
     <p class="reviews"></p>
     <% if %>
       <% business.has_key? 'rating'%>
-      <p class="reviews"> <%= business.rating %> out of <%= business.review_count%> reviews </p>
+      <p class="reviews"> <%= image_tag "#{business.rating_img_url}" %> out of <%= business.review_count%> reviews </p>
     <% else %>
       <p> There isn't a rating for this business.</p>
     <% end %>
@@ -57,6 +60,7 @@
     <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default save-btn" %>
 
     <% end %>
+
 
     </div> <!-- div media -->
     </div> <!--col-md-4-->

@@ -20,7 +20,7 @@ class SessionController < ApplicationController
 
   def destroy
     session.delete :user_id
-    redirect_to index_path
+    redirect_to root_path
   end
 
 
