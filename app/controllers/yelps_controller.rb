@@ -37,6 +37,8 @@ require 'yelp'
     parameters = { category: "restaurants" }
     if @category.present?
       parameters[:category_filter] = @category
+      parameters[:sort] = 1
+      parameters[:limit] = 20
     end
 
     if ["hotels", "restaurants"].include? parameters[:category]
@@ -49,7 +51,7 @@ require 'yelp'
     end
 
     @response = Yelp.client.search(@city, parameters)
-    
+
   end
 
 end
