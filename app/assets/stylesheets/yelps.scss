@@ -14,18 +14,38 @@
    }
 
 
-   .landing {
+  .welcome-email{
+    //  border: 1px solid #00c5ec;
+     line-height: 25px;
+   }
+
+   .email-button{
+     background-color: #00c5ec;
+   }
+
+
+   .background-pic {
     background: image-url("b.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 100vh;
     margin-bottom: 20px;
-    .landing_title {
+    opacity: 0.9;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+    .landing {
       height: 100%;
-      padding-top: 30%;
+      padding-top: 10%;
       text-align: center;
-    }
+      position: relative;
+      z-index: 1;
     .intro{
       padding-bottom: 25px;
       text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -34,14 +54,14 @@
     h1{
       color: #00c5ec;
       font-size: 55px;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      // text-transform: uppercase;
     }
     h2 {
       color: white;
-      font-family: 'Shadows Into Light Two', cursive;
+      font-family: 'Shadows Into Light Two';
+      font-size: 35px;
       text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    }
-    .login-btn {
-      font-size: 20px;
     }
   }
 

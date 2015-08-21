@@ -1,0 +1,17 @@
+
+<div class="landing text-center">
+  <div class="background-pic "></div intro>
+    <h1> Friends don't leave friends behind </h1>
+    <h2 id="intro">Discover the best pet-friendly locations around town</h2>
+
+    <div class="row col-md-4 col-md-offset-4 ">
+
+      <%= simple_form_for @client do |f|%>
+        <div class="welcome-email">
+        <%= f.input :email, label: false, placeholder:"EMAIL", class:"col-md-4"  %>
+      </div>
+        <%= f.button :submit, "SIGN UP FOR FREE", class:"login-btn" %>
+      <% end %>
+  </div>
+
+</div landing>
