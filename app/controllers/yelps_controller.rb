@@ -29,7 +29,6 @@ require 'yelp'
 
 
   def dashboard
-    # @user = User.new
     @client= Client.new
   end
 
@@ -40,12 +39,12 @@ require 'yelp'
   def create_client
     @client = Client.new params.require(:client).permit(:email)
     @client.save
-    redirect_to root_path
+    redirect_to home_path
   end
 
 
 
-  def index
+  def home
 
     parameters = { category: "restaurants" }
     if @category.present?

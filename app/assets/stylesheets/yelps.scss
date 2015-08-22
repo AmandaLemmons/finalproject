@@ -26,13 +26,13 @@
 
 
    .background-pic {
-    background: image-url("car.jpg")no-repeat center center fixed;
+    background: image-url("g.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 100vh;
     margin-bottom: 20px;
-    opacity: 0.4;
+     opacity: 0.4;
     position: absolute;
     z-index: -1;
     top: 0;
@@ -58,13 +58,14 @@
       // text-shadow: -1px 0 #DF5555, 0 1px #DF5555, 1px 0 #DF5555, 0 -1px #DF5555;
       font-family: 'Alegreya Sans SC', sans-serif;
       text-transform: uppercase;
+      margin-top: 100px;
     }
     h2 {
       color: #DF5555;
       font-family: 'Shadows Into Light Two';
       font-size: 35px;
       // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-      margin-bottom: 150px;
+      // margin-bottom: 150px;
     }
   }
 
@@ -94,6 +95,20 @@
 
      }
    }
+
+
+
+     .navbar-root{
+       background-color: transparent;
+       color: #00c5ec;
+       font-family: 'Shadows Into Light Two', cursive;
+       .navbar-header a {
+         color: #00c5ec;
+         font-size: 25px;
+
+       }
+     }
+
 
    .navbar {
       margin-bottom: 25px;

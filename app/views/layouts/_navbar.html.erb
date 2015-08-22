@@ -1,4 +1,14 @@
-<% unless root_path %>
+<% if root_path %>
+<nav class="navbar-root navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+       <%= link_to "Paws Friendly", home_path, class:"navbar-brand" %>
+    </div>
+  </div>
+</nav>
+<% else %>
+
+
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -26,22 +36,21 @@
 
 
 
-        <ul class="nav navbar-nav navbar-right">
+        <!-- <ul class="nav navbar-nav navbar-right">
 
-          <% if @current_user.nil? %>
+           if @current_user.nil? %>
             <li class:"login"> <%= link_to "Log in",  login_path, remote: true %> </li>
             <li> <%=link_to "Sign up", signup_path, remote: true %> </li>
 
-          <%else%>
+          else%>
             <li> <%= link_to "Saved Locations", saved_locations_path %></li>
             <li > <%= link_to "Logout", logout_path %> </li>
-          <%end%>
-        </ul>
+          end%>
+        </ul> -->
       </div>
     </div> <!--collapse navbar -->
     </div>
   </nav>
 
-  <% else %>
 
   <% end %>

@@ -1,4 +1,6 @@
-<div class="col-md-8 col-offset-4 results_found">
+<div class="col-md-12 results_found">
+
+  <%= render partial: 'layouts/navbar' %>
 
   <br>
   <% if @current_user.present? %>
@@ -17,7 +19,7 @@
   <% @response.businesses.each do |business| %>
 
   <!-- take(12) -->
-  <div class="col-md-4">
+  <div class="col-md-3">
 
   <div class="media">
 
@@ -26,16 +28,16 @@
 
     </div> <!-- div media body -->
 
-    <div class="media-right">
+    <!-- <div class="media-right"> -->
 
-        <% if %>
-          <% business.has_key? 'image_url' %>
-          <%= link_to(image_tag("#{business.image_url}"), business.url) %>
-        <% else %>
+        <!--  if %>
+           business.has_key? 'image_url' %>
+          < link_to(image_tag("#{business.image_url}"), business.url) %>
+         else %>
           <p> There isn't an availabe picture for this business. </p>
-        <% end %>
+        <end %> -->
 
-    </div>   <!-- div media-right -->
+    <!-- </div>   <!div media-right -->
 
     <div>
       <br>
@@ -55,12 +57,12 @@
 
     </div>
       <p class="reviews"></p>
-    <% if @current_user.nil? %>
-    <%= link_to "Save this #{@category}", login_path, remote: true, class:"btn btn-default save-btn" %>
-    <% else %>
-    <%= link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default save-btn" %>
+    <!-- if @current_user.nil? %>
+     link_to "Save this #{@category}", login_path, remote: true, class:"btn btn-default save-btn" %>
+   else %>
+     link_to "Save this #{@category}", saved_location_path(business_id: business.id), method: :post, class:"btn btn-default save-btn" %> -->
 
-    <% end %>
+     <!-- end %> -->
 
 
     </div> <!-- div media -->
