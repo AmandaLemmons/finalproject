@@ -1,0 +1,37 @@
+<nav class="navbar navbar-home navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <%= link_to "Paws Friendly", home_path, class:"navbar-brand" %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <form class="navbar-form navbar-right form-inline"  action="<%= url_for(root_path) %>#results">
+      <%= select_tag :category, options_for_select(SearchItem.yelp_categories, params[:category]), class: "form-control chosen-select", prompt: "Select a Category" %>
+
+        <input type="text" name="city" id="city" class="form-control" placeholder="Enter Your City" value="<%= params[:city] %>">
+
+        <button type="submit" class="btn btn-default">Submit</button>
+
+    </form>
+      <!-- <ul class="nav navbar-nav navbar-right">
+
+         if @current_user.nil? %>
+          <li class:"login"> <%= link_to "Log in",  login_path, remote: true %> </li>
+          <li> <%=link_to "Sign up", signup_path, remote: true %> </li>
+
+        else%>
+          <li> <%= link_to "Saved Locations", saved_locations_path %></li>
+          <li > <%= link_to "Logout", logout_path %> </li>
+        end%>
+      </ul> -->
+    </div>
+  </div> <!--collapse navbar -->
+  </div>
+</nav>

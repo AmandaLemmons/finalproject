@@ -3,7 +3,7 @@ require 'yelp'
 
   rescue_from Yelp::Error::UnavailableForLocation do |exception|
     flash[:alert] = "The city you entered isn't vaild. Please try again. "
-    redirect_to root_path
+    redirect_to home_path
   end
 
   before_action do
@@ -23,7 +23,7 @@ require 'yelp'
     @current_user = User.find_by id: @user_id
 
     if @current_user.nil?
-      redirect_to login_path
+      redirect_to home_path
     end
   end
 
@@ -59,7 +59,7 @@ require 'yelp'
 
     if @category.nil? || @city.nil?
       flash.now[:danger] = "There aren't any matches for your search area."
-      redirect_to index_path
+      redirect_to home_path
     end
 
     @response = Yelp.client.search(@city, parameters)

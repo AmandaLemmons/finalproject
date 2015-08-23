@@ -15,7 +15,6 @@
 
 
   .welcome-email{
-    //  border: 1px solid #00c5ec;
      line-height: 25px;
 
    }
@@ -96,68 +95,70 @@
      }
    }
 
-
-
-     .navbar-root{
-       background-color: transparent;
-       color: #00c5ec;
+    nav {
        font-family: 'Shadows Into Light Two', cursive;
+       color: black;
+       background-color: trasparent;
+     }
        .navbar-header a {
-         color: #00c5ec;
+         color: black;
          font-size: 25px;
 
-       }
-     }
-
-
-   .navbar {
-      margin-bottom: 25px;
-      font-family: 'Shadows Into Light Two', cursive;
-      font-size: 25px;
-      padding: 10px;
-      background-color: #00c5ec;
-    .navbar-header a {
-        color: white;
-        font-weight: bolder;
-        font-size: 25px;
-    }
-    .navbar-header a:hover {
-          color: #9068be;
-    }
-    #category.form-control, #city.form-control {
-      border-color: solid #9068be;
-      font-size: 18px;
-      background-color: #edd5d1;
-      color: #555555;
-      margin-bottom: 10px;
-      font-family: 'Open Sans', sans-serif;
-    }
-    .btn.btn-default {
-      color: #555555;
-      border-color: solid  #00c5ec;
-      font-size: 20;
-      background-color: #edd5d1;
-      margin-top: -10px;
-      font-family: 'Open Sans', sans-serif;
-
-    }
-    .btn.btn-default:hover {
-      color: #9068be;
     }
 
-    .navbar-nav li a{
-      color: white;
-      font-weight: bolder;
-    }
-    .navbar-nav li a:hover {
-      color: #9068be;
-    }
-    .form-inline {
-      padding-top: 6px;
-      font-size: 12px;
-      padding-left: 20px;
-    }
-  }
+
+
+
+
+  //
+  //  .navbar {
+  //     margin-bottom: 25px;
+  //     font-family: 'Shadows Into Light Two', cursive;
+  //     font-size: 25px;
+  //     padding: 10px;
+  //     background-color: #00c5ec;
+  //   .navbar-header a {
+  //       color: white;
+  //       font-weight: bolder;
+  //       font-size: 25px;
+  //   }
+  //   .navbar-header a:hover {
+  //         color: #9068be;
+  //   }
+  //   #category.form-control, #city.form-control {
+  //     border-color: solid #9068be;
+  //     font-size: 18px;
+  //     background-color: #edd5d1;
+  //     color: #555555;
+  //     margin-bottom: 10px;
+  //     font-family: 'Open Sans', sans-serif;
+  //   }
+  //   .btn.btn-default {
+  //     color: #555555;
+  //     border-color: solid  #00c5ec;
+  //     font-size: 20;
+  //     background-color: #edd5d1;
+  //     margin-top: -10px;
+  //     font-family: 'Open Sans', sans-serif;
+  //
+  //   }
+  //   .btn.btn-default:hover {
+  //     color: #9068be;
+  //   }
+  //
+  //   .navbar-nav li a{
+  //     color: white;
+  //     font-weight: bolder;
+  //   }
+  //   .navbar-nav li a:hover {
+  //     color: #9068be;
+  //   }
+  //   .form-inline {
+  //     padding-top: 6px;
+  //     font-size: 12px;
+  //     padding-left: 20px;
+  //   }
+  // }
 
   .doginfo {
     font-family: 'Roboto', sans-serif;
