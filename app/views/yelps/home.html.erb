@@ -1,31 +1,16 @@
 <div class="container">
-
-<div class="col-md-12" id="results">
-    <div align="center">
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- Responsive -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-9417749423889258"
-           data-ad-slot="2741863324"
-           data-ad-format="auto"></ins>
-      <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-
-    <% if @response.businesses.any? %>
-
-     <div id="map">
-     </div>
-   <% end %>
-</div>
-
-<div class="doginfo">
-  <% if @category.present? && @city.present? %>
-    <%= render partial: 'doginfo' %>
-  <% end %>
-</div>
+  <div class="col-md-12" >
+    <h3 class="text-center"> Find pet-friendly places in your area </h3>
+      <% if @response.businesses.any? %>
+       <div id="map">
+       </div>
+     <% end %>
+  </div>
+  <div class="doginfo">
+    <% if @category.present? && @city.present? %>
+      <%= render partial: 'doginfo' %>
+    <% end %>
+  </div>
 </div>
 
 <script>
@@ -42,3 +27,15 @@ $(window).ready(function(){
   <% end %>
 });
 </script>
+<div align="center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Responsive -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-9417749423889258"
+       data-ad-slot="2741863324"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>

@@ -3,11 +3,10 @@ require 'yelp'
 
   rescue_from Yelp::Error::UnavailableForLocation do |exception|
     flash[:alert] = "The city you entered isn't vaild. Please try again. "
-    redirect_to home_path
+    redirect_to root_path
   end
 
   before_action do
-
     if Rails.env.development?
       default_city = "Houston"
     else
@@ -23,7 +22,7 @@ require 'yelp'
     @current_user = User.find_by id: @user_id
 
     if @current_user.nil?
-      redirect_to home_path
+      redirect_to root_path
     end
   end
 
@@ -39,13 +38,11 @@ require 'yelp'
   def create_client
     @client = Client.new params.require(:client).permit(:email)
     @client.save
-    redirect_to home_path
+    redirect_to root_path
   end
 
 
-
   def home
-
     parameters = { category: "restaurants" }
     if @category.present?
       parameters[:category_filter] = @category
@@ -59,11 +56,8 @@ require 'yelp'
 
     if @category.nil? || @city.nil?
       flash.now[:danger] = "There aren't any matches for your search area."
-      redirect_to home_path
     end
-
     @response = Yelp.client.search(@city, parameters)
-
   end
 
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'yelps#dashboard'
+  root 'yelps#home'
+  # get '/home' => 'yelps#home'
 
   get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create', as: :users
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   post '/trips' => 'trips#create', as: :trips
   delete '/trips/:id'=> 'trips#destroy', as: :delete_trip
 
-  get '/home' => 'yelps#home'
+
   get '/client' => 'yelps#new_client'
   post '/clients' => 'yelps#create_client'
 
